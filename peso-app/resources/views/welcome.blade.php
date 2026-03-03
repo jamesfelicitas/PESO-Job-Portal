@@ -6,6 +6,9 @@
 
         <title>PESO Job Portal System</title>
 
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
@@ -18,11 +21,9 @@
         {{-- ========== NAVIGATION ========== --}}
         <nav class="peso-nav">
             <div class="nav-container">
-                <div class="flex justify-between items-center h-16">
+                <div class="flex justify-between items-center h-20">
                     <div class="flex items-center space-x-3">
-                        <div class="logo-circle">
-                            <span class="logo-text">P</span>
-                        </div>
+                        <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" class="w-18 h-18 rounded-full object-cover shadow-sm">
                         <span class="text-white font-bold text-xl tracking-wide">PESO Job Portal</span>
                     </div>
                     <div class="hidden md:flex items-center space-x-6">
@@ -204,9 +205,7 @@
                 <div class="grid md:grid-cols-4 gap-8">
                     <div>
                         <div class="flex items-center space-x-3 mb-4">
-                            <div class="logo-circle">
-                                <span class="logo-text">P</span>
-                            </div>
+                                                    <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" class="w-18 h-18 rounded-full object-cover shadow-sm">
                             <span class="font-bold text-xl">PESO</span>
                         </div>
                         <p class="text-blue-300 text-sm">Public Employment Service Office - Connecting jobseekers with opportunities.</p>
