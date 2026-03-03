@@ -97,6 +97,111 @@
             </div>
         </section>
 
+        {{-- ========== ABOUT - HISTORY OF EXCELLENCE ========== --}}
+        <section id="about" class="py-20 bg-white">
+            <div class="nav-container">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">The History of Excellence</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                        The journey of PESO Manolo Fortich — dedicated to bridging the gap between jobseekers and employers in our community since 2005.
+                    </p>
+                </div>
+
+                <!-- Timeline -->
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
+
+                    <!-- Timeline Item 1 - April 2005 -->
+                    <div class="relative flex items-center mb-12">
+                        <div class="w-1/2 pr-12 text-right">
+                            <h3 class="text-2xl font-bold text-blue-700">April 13, 2005</h3>
+                            <h4 class="text-lg font-semibold text-gray-800 mt-1">The Beginning</h4>
+                            <p class="text-gray-600 mt-2 text-sm">
+                                The Public Employment Service Office (PESO) of Manolo Fortich commenced its dynamic operations following the approval of Resolution No. 2005-08, which sanctioned the creation of Plantilla positions under the PESO of the Local Government Unit.
+                            </p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+                        <div class="w-1/2 pl-12"></div>
+                    </div>
+
+                    <!-- Timeline Item 2 - July 2005 -->
+                    <div class="relative flex items-center mb-12">
+                        <div class="w-1/2 pr-12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+                        <div class="w-1/2 pl-12">
+                            <h3 class="text-2xl font-bold text-blue-700">July 2005</h3>
+                            <h4 class="text-lg font-semibold text-gray-800 mt-1">Institutionalization</h4>
+                            <p class="text-gray-600 mt-2 text-sm">
+                                Recognizing the need for a dedicated institution to address employment challenges, the Manolo Fortich Municipal Mayor's office institutionalized the PESO through an ordinance under Sangguniang Bayan Resolution No. 2005-94, under the leadership of Mayor Socorro O. Acosta. This marked a significant step towards formalizing the office's role in facilitating employment opportunities and supporting workforce development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 - October 2005 -->
+                    <div class="relative flex items-center mb-12">
+                        <div class="w-1/2 pr-12 text-right">
+                            <h3 class="text-2xl font-bold text-blue-700">October 26, 2005</h3>
+                            <h4 class="text-lg font-semibold text-gray-800 mt-1">DOLE Accreditation</h4>
+                            <p class="text-gray-600 mt-2 text-sm">
+                                A pivotal resolution authorized Mayor Acosta to enter into an agreement with the Department of Labor and Employment (DOLE), culminating in the official accreditation of the PESO. This accreditation opened doors for collaboration with DOLE and other government agencies, enhancing the office's capacity to serve the community.
+                            </p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+                        <div class="w-1/2 pl-12"></div>
+                    </div>
+
+                    <!-- Timeline Item 4 - January 2013 -->
+                    <div class="relative flex items-center mb-12">
+                        <div class="w-1/2 pr-12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+                        <div class="w-1/2 pl-12">
+                            <h3 class="text-2xl font-bold text-blue-700">January 2013</h3>
+                            <h4 class="text-lg font-semibold text-gray-800 mt-1">Manpower Skills Registration System</h4>
+                            <p class="text-gray-600 mt-2 text-sm">
+                                As leadership transitioned to Hon. Rogelio N. Guo, the PESO continued its mission to provide quality employment services. A resolution supporting the establishment of the Manpower Skills Registration System underscored the office's commitment to addressing the evolving needs of job seekers.
+                            </p>
+                        </div>
+                    </div>                  
+                </div>
+
+                <!-- Mission and Vision -->
+                <div class="grid md:grid-cols-2 gap-10 mt-20">
+                    <!-- Mission -->
+                    <div class="bg-blue-50 rounded-2xl p-10 border border-blue-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-blue-800">Mission</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            To promote economic growth and sustainable development in Manolo Fortich through the implementation of the PESO program, providing employment opportunities and skills development for the community.
+                        </p>
+                    </div>
+                    <!-- Vision -->
+                    <div class="bg-red-50 rounded-2xl p-10 border border-red-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-red-800">Vision</h3>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            To become the lead municipality in the Philippines by creating a robust local economy that provides decent jobs, promotes entrepreneurship, and enhances the quality of life of the residents of Manolo Fortich.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         {{-- ========== SERVICES SECTION ========== --}}
         <section id="services" class="py-20 bg-gray-50">
             <div class="nav-container">
