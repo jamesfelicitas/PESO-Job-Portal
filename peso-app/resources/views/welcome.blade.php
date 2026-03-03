@@ -292,6 +292,30 @@
             </div>
         </section>
 
+        {{-- ========== REPUBLIC ACT NO. 8759 ========== --}}
+        <section class="py-20 bg-white">
+            <div class="nav-container">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6">REPUBLIC ACT NO. 8759</h2>
+                    <p class="text-gray-500 uppercase tracking-wide text-sm md:text-base mb-8">
+                        AN ACT INSTITUTIONALIZING A NATIONAL FACILITATION SERVICE NETWORK THROUGH THE ESTABLISHMENT OF A PUBLIC EMPLOYMENT SERVICE OFFICE IN EVERY PROVINCE, KEY CITY AND OTHER STRATEGIC AREAS THROUGHOUT THE COUNTRY.
+                    </p>
+                    <p class="text-gray-700 text-base leading-relaxed mb-6">
+                        Be it enacted by the Senate and House of Representatives of the Philippines in Congress assembled:
+                    </p>
+                    <p class="text-gray-700 text-base leading-relaxed mb-6">
+                        Section 1– Title. — This Act shall be known as the "Public Employment Service Office Act of 1999."
+                    </p>
+                    <p class="text-gray-700 text-base leading-relaxed mb-6">
+                        Section 2.  Declaration of Policy. - It is a declared policy of the State to promote full employment and equality of employment opportunities for all, and for this purpose, to strengthen and expand the existing employment facilitation service machinery of the government particularly at the local levels.
+                    </p>
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        Approved: February 14, 2000 .
+                    </p>
+                </div>
+            </div>
+        </section>
+
         {{-- ========== CTA SECTION ========== --}}
         <section class="cta-section">
             <div class="max-w-4xl mx-auto px-4 text-center">
