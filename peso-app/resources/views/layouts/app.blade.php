@@ -16,7 +16,7 @@
         <!-- Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-white text-gray-900 min-h-screen font-sans">
+    <body class="bg-white text-gray-900 min-h-screen font-sans pt-20">
 
         {{-- ========== NAVIGATION ========== --}}
         <nav class="peso-nav">
@@ -28,6 +28,7 @@
                     </div>
                     <div class="hidden md:flex items-center space-x-6">
                         <a href="{{ url('/') }}" class="@yield('nav-home', 'nav-link')">Home</a>
+                        <a href="#jobs" class="nav-link">Job Listings</a>
                         <!-- About Dropdown -->
                         <div class="relative group">
                             <button class="nav-link flex items-center gap-1">
@@ -44,7 +45,6 @@
                             </div>
                         </div>
                         <a href="{{ url('/#services') }}" class="nav-link">Services</a>
-                        <a href="#jobs" class="nav-link">Job Listings</a>
                         <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
                         <a href="#" class="btn-login">Login</a>
                         <a href="#" class="btn-outline-white">Register</a>
