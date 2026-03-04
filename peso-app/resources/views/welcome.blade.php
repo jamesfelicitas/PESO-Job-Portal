@@ -24,7 +24,7 @@
                             Connecting Filipino jobseekers with verified employers. Access thousands of local and overseas job opportunities through PESO.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#" class="btn-primary">Browse Jobs</a>
+                            <a href="#jobs" class="btn-primary">Browse Jobs</a>
                             <a href="#" class="btn-outline-hero">Post a Vacancy</a>
                         </div>
                         <div class="grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8 mt-8 sm:mt-10 text-blue-200">

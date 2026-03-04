@@ -4,8 +4,11 @@
 
 @section('content')
         {{-- ========== HISTORY SECTION ========== --}}
-        <section id="history" class="py-20 bg-white">
-            <div class="nav-container">
+        <section id="history" class="py-20 bg-white relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <img src="{{ asset('images/PESOO.png') }}" alt="" class="w-[500px] h-[500px] object-contain opacity-5">
+            </div>
+            <div class="nav-container relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl font-bold text-gray-900 mb-4">The History of Excellence</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>

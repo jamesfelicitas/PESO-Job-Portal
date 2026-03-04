@@ -30,7 +30,7 @@
                     {{-- Desktop Nav --}}
                     <div class="hidden lg:flex items-center space-x-6">
                         <a href="{{ url('/') }}" class="@yield('nav-home', 'nav-link')">Home</a>
-                        <a href="#jobs" class="nav-link">Job Listings</a>
+                        <a href="{{ url('/#jobs') }}" class="nav-link">Job Listings</a>
                         <!-- About Dropdown -->
                         <div class="relative group">
                             <button class="nav-link flex items-center gap-1">
@@ -68,7 +68,7 @@
             <div id="mobile-menu" class="hidden lg:hidden bg-blue-800 border-t border-blue-700">
                 <div class="nav-container py-4 space-y-1">
                     <a href="{{ url('/') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Home</a>
-                    <a href="#jobs" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Job Listings</a>
+                    <a href="{{ url('/#jobs') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Job Listings</a>
 
                     {{-- Get To Know Us (collapsible) --}}
                     <div>
@@ -149,7 +149,7 @@
                             <li><a href="{{ url('/') }}" class="footer-link">Home</a></li>
                             <li><a href="{{ url('/about/history') }}" class="footer-link">About PESO</a></li>
                             <li><a href="{{ url('/#services') }}" class="footer-link">Services</a></li>
-                            <li><a href="#jobs" class="footer-link">Job Listings</a></li>
+                            <li><a href="{{ url('/#jobs') }}" class="footer-link">Job Listings</a></li>
                         </ul>
                     </div>
                     <div>

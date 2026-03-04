@@ -4,8 +4,11 @@
 
 @section('content')
         {{-- ========== VISION SECTION ========== --}}
-        <section id="vision" class="py-20 bg-white">
-            <div class="nav-container">
+        <section id="vision" class="py-20 bg-white relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <img src="{{ asset('images/PESOO.png') }}" alt="" class="w-[500px] h-[500px] object-contain opacity-5">
+            </div>
+            <div class="nav-container relative z-10">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-10">
                         <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Vision</h2>
