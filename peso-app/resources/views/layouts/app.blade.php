@@ -45,7 +45,7 @@
                         </div>
                         <a href="{{ url('/#services') }}" class="nav-link">Services</a>
                         <a href="#jobs" class="nav-link">Job Listings</a>
-                        <a href="{{ url('/#contact') }}" class="nav-link">Contact</a>
+                        <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
                         <a href="#" class="btn-login">Login</a>
                         <a href="#" class="btn-outline-white">Register</a>
                     </div>
