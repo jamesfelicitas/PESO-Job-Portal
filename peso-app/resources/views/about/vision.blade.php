@@ -6,7 +6,7 @@
         {{-- ========== VISION SECTION ========== --}}
         <section id="vision" class="py-20 bg-white relative overflow-hidden">
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <img src="{{ asset('images/PESOO.png') }}" alt="" class="w-[500px] h-[500px] object-contain opacity-5">
+                <img src="{{ asset('images/PESOO.png') }}" alt="" class="w-125 h-125 object-contain opacity-5">
             </div>
             <div class="nav-container relative z-10">
                 <div class="max-w-4xl mx-auto">

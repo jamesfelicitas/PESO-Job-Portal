@@ -68,48 +68,61 @@
                     <p class="section-subheading max-w-2xl mx-auto">Browse the latest job opportunities posted through PESO Manolo Fortich</p>
                 </div>
 
+                {{-- Search Bar --}}
+                <div class="mb-6">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+                        <input id="job-search" type="text" placeholder="Search jobs by title, company, or keyword..." class="w-full pl-12 pr-12 py-4 rounded-2xl border-2 border-gray-200 bg-white text-gray-900 text-sm sm:text-base font-medium focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition shadow-sm placeholder:text-gray-400">
+                        <button id="job-search-clear" class="absolute inset-y-0 right-0 pr-4 items-center text-gray-400 hover:text-gray-600 transition hidden" title="Clear search">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
+                    </div>
+                </div>
+
                 {{-- Filter Bar --}}
-                <div class="bg-gradient-to-r from-blue-700 to-blue-600 rounded-2xl p-4 sm:p-6 mb-8">
+                <div class="bg-linear-to-r from-blue-700 to-blue-600 rounded-2xl p-4 sm:p-6 mb-8">
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                        <select class="w-full px-4 py-3 rounded-xl bg-white/20 text-white border border-white/30 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer">
-                            <option class="text-gray-800">All Categories</option>
-                            <option class="text-gray-800">Administrative</option>
-                            <option class="text-gray-800">IT / Technical</option>
-                            <option class="text-gray-800">Education</option>
-                            <option class="text-gray-800">Healthcare</option>
-                            <option class="text-gray-800">Agriculture</option>
-                            <option class="text-gray-800">Construction</option>
-                            <option class="text-gray-800">Sales & Marketing</option>
+                        <select id="filter-category" class="w-full px-4 py-3 rounded-xl bg-white/20 text-white border border-white/30 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer">
+                            <option value="" class="text-gray-800">All Categories</option>
+                            <option value="Administrative" class="text-gray-800">Administrative</option>
+                            <option value="IT / Technical" class="text-gray-800">IT / Technical</option>
+                            <option value="Education" class="text-gray-800">Education</option>
+                            <option value="Healthcare" class="text-gray-800">Healthcare</option>
+                            <option value="Agriculture" class="text-gray-800">Agriculture</option>
+                            <option value="Construction" class="text-gray-800">Construction</option>
+                            <option value="Sales & Marketing" class="text-gray-800">Sales & Marketing</option>
                         </select>
-                        <select class="w-full px-4 py-3 rounded-xl bg-white/20 text-white border border-white/30 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer">
-                            <option class="text-gray-800">All Locations</option>
-                            <option class="text-gray-800">Manolo Fortich</option>
-                            <option class="text-gray-800">Malaybalay</option>
-                            <option class="text-gray-800">Valencia</option>
-                            <option class="text-gray-800">Cagayan de Oro</option>
-                            <option class="text-gray-800">Bukidnon</option>
+                        <select id="filter-location" class="w-full px-4 py-3 rounded-xl bg-white/20 text-white border border-white/30 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer">
+                            <option value="" class="text-gray-800">All Locations</option>
+                            <option value="Manolo Fortich" class="text-gray-800">Manolo Fortich</option>
+                            <option value="Malaybalay" class="text-gray-800">Malaybalay</option>
+                            <option value="Valencia" class="text-gray-800">Valencia</option>
+                            <option value="Cagayan de Oro" class="text-gray-800">Cagayan de Oro</option>
+                            <option value="Bukidnon" class="text-gray-800">Bukidnon</option>
                         </select>
-                        <select class="w-full px-4 py-3 rounded-xl bg-white/20 text-white border border-white/30 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer">
-                            <option class="text-gray-800">All Companies</option>
-                            <option class="text-gray-800">Del Monte Philippines</option>
-                            <option class="text-gray-800">LGU Manolo Fortich</option>
-                            <option class="text-gray-800">Dole Philippines</option>
+                        <select id="filter-company" class="w-full px-4 py-3 rounded-xl bg-white/20 text-white border border-white/30 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none cursor-pointer">
+                            <option value="" class="text-gray-800">All Companies</option>
+                            <option value="Del Monte Philippines" class="text-gray-800">Del Monte Philippines</option>
+                            <option value="LGU Manolo Fortich" class="text-gray-800">LGU Manolo Fortich</option>
+                            <option value="Dole Philippines" class="text-gray-800">Dole Philippines</option>
+                            <option value="DepEd" class="text-gray-800">DepEd</option>
+                            <option value="Provincial Hospital" class="text-gray-800">Provincial Hospital</option>
                         </select>
                     </div>
                 </div>
 
-                {{-- Filter Labels --}}
-                <div class="hidden sm:grid sm:grid-cols-12 gap-4 px-4 mb-3 text-xs text-gray-400 font-semibold uppercase tracking-wider">
-                    <div class="col-span-5">Showing: All Categories</div>
-                    <div class="col-span-3">All Locations</div>
-                    <div class="col-span-2">All Companies</div>
-                    <div class="col-span-2 text-right">Date</div>
+                {{-- Active Filters & Results Count --}}
+                <div id="job-filter-status" class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <p class="text-sm text-gray-500"><span id="job-results-count" class="font-bold text-gray-800">5</span> jobs found</p>
+                    <button id="job-clear-filters" class="text-sm text-blue-600 hover:text-blue-800 font-semibold hidden transition">Clear all filters</button>
                 </div>
 
                 {{-- Job List --}}
-                <div class="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 shadow-sm">
+                <div id="job-list" class="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 shadow-sm">
                     {{-- Job Item 1 --}}
-                    <a href="#" class="flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group">
+                    <a href="#" class="job-item flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group" data-title="Administrative Assistant" data-category="Administrative" data-location="Manolo Fortich" data-company="LGU Manolo Fortich">
                         <div class="sm:col-span-5">
                             <div class="flex items-center gap-2">
                                 <span class="text-yellow-500 text-sm">&#9733;</span>
@@ -126,7 +139,7 @@
                     </a>
 
                     {{-- Job Item 2 --}}
-                    <a href="#" class="flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group">
+                    <a href="#" class="job-item flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group" data-title="Farm Technician" data-category="Agriculture" data-location="Manolo Fortich" data-company="Del Monte Philippines">
                         <div class="sm:col-span-5">
                             <div class="flex items-center gap-2">
                                 <span class="text-yellow-500 text-sm">&#9733;</span>
@@ -143,7 +156,7 @@
                     </a>
 
                     {{-- Job Item 3 --}}
-                    <a href="#" class="flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group">
+                    <a href="#" class="job-item flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group" data-title="Elementary School Teacher" data-category="Education" data-location="Manolo Fortich" data-company="DepEd">
                         <div class="sm:col-span-5">
                             <h4 class="font-bold text-gray-900 group-hover:text-blue-700 transition text-sm sm:text-base">Elementary School Teacher</h4>
                             <p class="text-gray-500 text-xs sm:text-sm mt-0.5">DepEd Manolo Fortich</p>
@@ -157,7 +170,7 @@
                     </a>
 
                     {{-- Job Item 4 --}}
-                    <a href="#" class="flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group">
+                    <a href="#" class="job-item flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group" data-title="Registered Nurse" data-category="Healthcare" data-location="Malaybalay" data-company="Provincial Hospital">
                         <div class="sm:col-span-5">
                             <h4 class="font-bold text-gray-900 group-hover:text-blue-700 transition text-sm sm:text-base">Registered Nurse</h4>
                             <p class="text-gray-500 text-xs sm:text-sm mt-0.5">Bukidnon Provincial Hospital</p>
@@ -171,7 +184,7 @@
                     </a>
 
                     {{-- Job Item 5 --}}
-                    <a href="#" class="flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group">
+                    <a href="#" class="job-item flex flex-col sm:grid sm:grid-cols-12 gap-2 sm:gap-4 items-start sm:items-center px-4 sm:px-6 py-4 hover:bg-blue-50 transition group" data-title="Sales & Marketing Associate" data-category="Sales & Marketing" data-location="Manolo Fortich" data-company="Dole Philippines">
                         <div class="sm:col-span-5">
                             <div class="flex items-center gap-2">
                                 <span class="text-yellow-500 text-sm">&#9733;</span>
@@ -188,6 +201,13 @@
                     </a>
                 </div>
 
+                {{-- No Results Message --}}
+                <div id="job-no-results" class="hidden text-center py-12">
+                    <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <h3 class="text-lg font-bold text-gray-500 mb-1">No jobs found</h3>
+                    <p class="text-sm text-gray-400">Try adjusting your search or filters</p>
+                </div>
+
                 {{-- View All --}}
                 <div class="text-center mt-8">
                     <a href="#" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold text-sm transition">
@@ -199,110 +219,7 @@
         </section>
 
         {{-- ========== JOB FAIRS & EVENTS ========== --}}
-        <section class="py-16 sm:py-20 bg-gray-50">
-            <div class="nav-container">
-                <div class="text-center mb-10 sm:mb-14">
-                    <h2 class="section-heading">Job Fairs & <span class="text-red-600">Events</span></h2>
-                    <p class="section-subheading max-w-2xl mx-auto">Stay updated with upcoming PESO events, job fairs, and skills training programs</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    {{-- Event Card 1 --}}
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group">
-                        <div class="bg-gradient-to-r from-blue-700 to-blue-600 p-5 sm:p-6 relative">
-                            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">UPCOMING</div>
-                            <div class="flex items-center gap-4">
-                                <div class="bg-white rounded-xl p-3 text-center min-w-[60px]">
-                                    <span class="block text-2xl font-extrabold text-blue-700 leading-none">15</span>
-                                    <span class="block text-xs font-semibold text-blue-500 uppercase">Mar</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-white font-bold text-base sm:text-lg leading-snug">Peso Job Fair 2026</h3>
-                                    <p class="text-blue-200 text-xs sm:text-sm mt-1">Municipal Gymnasium</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-5 sm:p-6">
-                            <p class="text-gray-600 text-sm mb-4">Join the biggest job fair in Manolo Fortich featuring 20+ companies with hundreds of job openings for all skill levels.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">Job Fair</span>
-                                <span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Free Admission</span>
-                            </div>
-                            <div class="flex items-center justify-between text-xs text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    8:00 AM - 5:00 PM
-                                </span>
-                                <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">Learn More &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Event Card 2 --}}
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group">
-                        <div class="bg-gradient-to-r from-red-600 to-red-500 p-5 sm:p-6 relative">
-                            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">UPCOMING</div>
-                            <div class="flex items-center gap-4">
-                                <div class="bg-white rounded-xl p-3 text-center min-w-[60px]">
-                                    <span class="block text-2xl font-extrabold text-red-600 leading-none">22</span>
-                                    <span class="block text-xs font-semibold text-red-400 uppercase">Mar</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-white font-bold text-base sm:text-lg leading-snug">Skills Training: Computer Literacy</h3>
-                                    <p class="text-red-200 text-xs sm:text-sm mt-1">PESO Office, Municipal Hall</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-5 sm:p-6">
-                            <p class="text-gray-600 text-sm mb-4">Free computer literacy training covering Microsoft Office, email, and basic digital skills for jobseekers.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Training</span>
-                                <span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Free</span>
-                                <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-1 rounded-full">Limited Slots</span>
-                            </div>
-                            <div class="flex items-center justify-between text-xs text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    9:00 AM - 4:00 PM
-                                </span>
-                                <a href="#" class="text-red-600 hover:text-red-800 font-semibold">Register &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Event Card 3 --}}
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition group">
-                        <div class="bg-gradient-to-r from-blue-800 to-blue-700 p-5 sm:p-6 relative">
-                            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">APRIL</div>
-                            <div class="flex items-center gap-4">
-                                <div class="bg-white rounded-xl p-3 text-center min-w-[60px]">
-                                    <span class="block text-2xl font-extrabold text-blue-800 leading-none">05</span>
-                                    <span class="block text-xs font-semibold text-blue-500 uppercase">Apr</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-white font-bold text-base sm:text-lg leading-snug">Career Counseling Day</h3>
-                                    <p class="text-blue-200 text-xs sm:text-sm mt-1">PESO Office, Municipal Hall</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-5 sm:p-6">
-                            <p class="text-gray-600 text-sm mb-4">One-on-one career counseling sessions with PESO staff to help you plan your career path and job search strategy.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">Counseling</span>
-                                <span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Walk-in</span>
-                            </div>
-                            <div class="flex items-center justify-between text-xs text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    8:00 AM - 12:00 PM
-                                </span>
-                                <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">Learn More &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         {{-- ========== FEATURES SECTION ========== --}}
         <section id="services" class="py-20 bg-gray-50">
