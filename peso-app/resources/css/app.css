@@ -60,16 +60,16 @@
         @apply text-red-200 text-sm font-medium;
     }
     .hero-title {
-        @apply text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6;
+        @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6;
     }
     .hero-subtitle {
-        @apply text-blue-100 text-lg md:text-xl mb-8 leading-relaxed;
+        @apply text-blue-100 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 leading-relaxed;
     }
     .btn-primary {
-        @apply bg-red-600 hover:bg-red-700 text-white px-8 py-3.5 rounded-lg font-bold text-lg transition shadow-lg shadow-red-600/30 text-center;
+        @apply bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold text-base sm:text-lg transition shadow-lg shadow-red-600/30 text-center;
     }
     .btn-outline-hero {
-        @apply border-2 border-white/30 hover:border-white text-white px-8 py-3.5 rounded-lg font-bold text-lg transition text-center;
+        @apply border-2 border-white/30 hover:border-white text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold text-base sm:text-lg transition text-center;
     }
     .stat-value {
         @apply block text-3xl font-extrabold text-white;

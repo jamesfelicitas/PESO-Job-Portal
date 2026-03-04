@@ -16,17 +16,19 @@
         <!-- Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-white text-gray-900 min-h-screen font-sans pt-20">
+    <body class="bg-white text-gray-900 min-h-screen font-sans pt-16 md:pt-20">
 
         {{-- ========== NAVIGATION ========== --}}
         <nav class="peso-nav">
             <div class="nav-container">
-                <div class="flex justify-between items-center h-20">
-                    <div class="flex items-center space-x-3">
-                        <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" class="w-18 h-18 rounded-full object-cover shadow-sm">
-                        <span class="text-white font-bold text-xl tracking-wide">PESO Manolo Fortich</span>
+                <div class="flex justify-between items-center h-16 md:h-20">
+                    <div class="flex items-center space-x-2 sm:space-x-3">
+                        <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" class="w-10 h-10 sm:w-14 sm:h-14 md:w-18 md:h-18 rounded-full object-cover shadow-sm">
+                        <span class="text-white font-bold text-sm sm:text-lg md:text-xl tracking-wide">PESO Manolo Fortich</span>
                     </div>
-                    <div class="hidden md:flex items-center space-x-6">
+
+                    {{-- Desktop Nav --}}
+                    <div class="hidden lg:flex items-center space-x-6">
                         <a href="{{ url('/') }}" class="@yield('nav-home', 'nav-link')">Home</a>
                         <a href="#jobs" class="nav-link">Job Listings</a>
                         <!-- About Dropdown -->
@@ -49,6 +51,47 @@
                         <a href="#" class="btn-login">Login</a>
                         <a href="#" class="btn-outline-white">Register</a>
                     </div>
+
+                    {{-- Hamburger Button --}}
+                    <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none p-2" aria-label="Toggle menu">
+                        <svg id="hamburger-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            {{-- Mobile Menu --}}
+            <div id="mobile-menu" class="hidden lg:hidden bg-blue-800 border-t border-blue-700">
+                <div class="nav-container py-4 space-y-1">
+                    <a href="{{ url('/') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Home</a>
+                    <a href="#jobs" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Job Listings</a>
+
+                    {{-- Get To Know Us (collapsible) --}}
+                    <div>
+                        <button id="mobile-about-btn" class="w-full flex justify-between items-center px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">
+                            <span>Get To Know Us</span>
+                            <svg id="mobile-about-arrow" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="mobile-about-dropdown" class="hidden pl-4 space-y-1 mt-1">
+                            <a href="{{ url('/about/history') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">History of Excellence</a>
+                            <a href="{{ url('/about/mission') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Mission</a>
+                            <a href="{{ url('/about/vision') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Vision</a>
+                        </div>
+                    </div>
+
+                    <a href="{{ url('/#services') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Services</a>
+                    <a href="{{ url('/contact') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Contact</a>
+
+                    <div class="pt-3 mt-3 border-t border-blue-700 flex flex-col gap-3 px-4">
+                        <a href="#" class="btn-login text-center">Login</a>
+                        <a href="#" class="btn-outline-white text-center">Register</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -59,7 +102,7 @@
         {{-- ========== FOOTER / CONTACT ========== --}}
         <footer id="contact" class="peso-footer">
             <div class="nav-container">
-                <div class="grid md:grid-cols-4 gap-8 items-start">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
                     <div>
                         <div class="flex items-center space-x-3 mb-4">
                             <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" class="w-10 h-9 rounded-full object-cover shadow-sm">
