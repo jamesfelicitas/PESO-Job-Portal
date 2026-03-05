@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('nav-home', 'nav-link-active')
-
 @section('content')
 
         {{-- ========== HERO SECTION ========== --}}
@@ -232,31 +230,60 @@
                 <div class="container mx-auto px-4 py-12">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <!-- Feature Card 1 -->
+                        <!-- Jobseeker Card -->
                         <div class="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
-                            <div class="absolute inset-0 bg-linear-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute inset-0 bg-linear-to-br from-blue-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             
                             <div class="relative p-6">
                                 <!-- Icon -->
                                 <div class="w-14 h-14 bg-linear-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                     </svg>
                                 </div>
                                 
                                 <!-- Title -->
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
-                                    Job Portal
+                                <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
+                                    Jobseeker Portal
                                 </h3>
                                 
-                                <!-- Description -->
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                    Browse and apply for job opportunities. Connect with employers and manage your applications.
-                                </p>
+                                <!-- Features List -->
+                                <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Register & Build Profile</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>View & Apply for Jobs</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Track Applications</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>View PESO Clearance Issued</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Receive Notifications & Alerts</span>
+                                    </li>
+                                </ul>
                                 
                                 <!-- Button -->
                                 <button class="w-full bg-blue-50 text-blue-600 font-semibold py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                                    <span>Learn More</span>
+                                    <span>Register Now</span>
                                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                     </svg>
@@ -264,27 +291,61 @@
                             </div>
                         </div>
 
-                        <!-- Feature Card 2 -->
+                        <!-- PESO Admin Card -->
                         <div class="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
-                            <div class="absolute inset-0 bg-linear-to-br from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute inset-0 bg-linear-to-br from-green-500/5 to-emerald-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             
                             <div class="relative p-6">
+                                <!-- Badge -->
+                                <div class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                                    CORE
+                                </div>
+                                
                                 <div class="w-14 h-14 bg-linear-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                                     </svg>
                                 </div>
                                 
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
-                                    Training Programs
+                                <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">
+                                    PESO Admin
                                 </h3>
                                 
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                    Access skill development courses and certifications to enhance your career prospects.
-                                </p>
+                                <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Employer Verification (DTI, POEA)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Review & Refer Applications</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>PESO Clearance Issuance</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>LRA / SRA Approvals</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Track Applicant Status</span>
+                                    </li>
+                                </ul>
                                 
                                 <button class="w-full bg-green-50 text-green-600 font-semibold py-2.5 px-4 rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                                    <span>Learn More</span>
+                                    <span>Admin Portal</span>
                                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                     </svg>
@@ -292,27 +353,56 @@
                             </div>
                         </div>
 
-                        <!-- Feature Card 3 -->
+                        <!-- Employer Card -->
                         <div class="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
-                            <div class="absolute inset-0 bg-linear-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute inset-0 bg-linear-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             
                             <div class="relative p-6">
-                                <div class="w-14 h-14 bg-linear-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                <div class="w-14 h-14 bg-linear-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                     <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                     </svg>
                                 </div>
                                 
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
-                                    Services & Resources
+                                <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-orange-600 transition-colors">
+                                    Employer Portal
                                 </h3>
                                 
-                                <p class="text-gray-600 mb-4 leading-relaxed">
-                                    Get assistance with job search tools, resume building, and career counseling services.
-                                </p>
+                                <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-orange-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Post Job Vacancies</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-orange-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Review Applicants</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-orange-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Decide: Interview / Hire</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-orange-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Request LRA</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-5 h-5 text-orange-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>Receive Notifications & Alerts</span>
+                                    </li>
+                                </ul>
                                 
-                                <button class="w-full bg-purple-50 text-purple-600 font-semibold py-2.5 px-4 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                                    <span>Learn More</span>
+                                <button class="w-full bg-orange-50 text-orange-600 font-semibold py-2.5 px-4 rounded-lg hover:bg-orange-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                                    <span>Post a Job</span>
                                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                     </svg>
@@ -385,5 +475,131 @@
             </div>
         </section>
 
-@endsection
+        {{-- ========== SCROLL SPY SCRIPT ========== --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get all sections that have an ID
+                const sections = document.querySelectorAll('section[id], footer[id]');
+                
+                // Get all navigation links using data attributes
+                const navLinks = {
+                    home: {
+                        desktop: document.querySelector('a[data-nav="home"]'),
+                        mobile: document.querySelector('a[data-nav-mobile="home"]')
+                    },
+                    jobs: {
+                        desktop: document.querySelector('a[data-nav="jobs"]'),
+                        mobile: document.querySelector('a[data-nav-mobile="jobs"]')
+                    },
+                    services: {
+                        desktop: document.querySelector('a[data-nav="services"]'),
+                        mobile: document.querySelector('a[data-nav-mobile="services"]')
+                    },
+                    contact: {
+                        desktop: document.querySelector('a[data-nav="contact"]'),
+                        mobile: document.querySelector('a[data-nav-mobile="contact"]')
+                    }
+                };
+
+                // Function to remove active class from all links
+                function removeActiveClasses() {
+                    Object.values(navLinks).forEach(linkPair => {
+                        if (linkPair.desktop) {
+                            linkPair.desktop.classList.remove('nav-link-active');
+                            linkPair.desktop.classList.add('nav-link');
+                        }
+                        if (linkPair.mobile) {
+                            linkPair.mobile.classList.remove('bg-blue-700', 'text-white');
+                            linkPair.mobile.classList.add('text-blue-200');
+                        }
+                    });
+                }
+
+                // Function to add active class to specific link
+                function setActiveLink(linkName) {
+                    const linkPair = navLinks[linkName];
+                    if (linkPair) {
+                        if (linkPair.desktop) {
+                            linkPair.desktop.classList.remove('nav-link');
+                            linkPair.desktop.classList.add('nav-link-active');
+                        }
+                        if (linkPair.mobile) {
+                            linkPair.mobile.classList.remove('text-blue-200');
+                            linkPair.mobile.classList.add('bg-blue-700', 'text-white');
+                        }
+                    }
+                }
+
+                // Scroll spy function
+                function scrollSpy() {
+                    const scrollPosition = window.scrollY + 150; // Offset for better UX
+
+                    // Default to home if at top
+                    if (window.scrollY < 100) {
+                        removeActiveClasses();
+                        setActiveLink('home');
+                        return;
+                    }
+
+                    // Check each section
+                    let currentSection = 'home';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+                        const sectionId = section.getAttribute('id');
+
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                            currentSection = sectionId;
+                        }
+                    });
+
+                    // Update active link
+                    removeActiveClasses();
+                    setActiveLink(currentSection);
+                }
+
+                // Listen to scroll events with throttle for performance
+                let scrollTimeout;
+                window.addEventListener('scroll', function() {
+                    if (scrollTimeout) {
+                        window.cancelAnimationFrame(scrollTimeout);
+                    }
+                    scrollTimeout = window.requestAnimationFrame(function() {
+                        scrollSpy();
+                    });
+                });
+
+                // Run on page load
+                scrollSpy();
+
+                // Smooth scroll for navigation links
+                document.querySelectorAll('a[href^="#"], a[href*="/#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        const hash = href.includes('/#') ? href.split('/#')[1] : href.substring(1);
+                        
+                        if (hash && document.getElementById(hash)) {
+                            e.preventDefault();
+                            const target = document.getElementById(hash);
+                            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                            
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+
+                            // Close mobile menu if open
+                            const mobileMenu = document.getElementById('mobile-menu');
+                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                                document.getElementById('hamburger-icon').classList.remove('hidden');
+                                document.getElementById('close-icon').classList.add('hidden');
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+
+@endsection 
 

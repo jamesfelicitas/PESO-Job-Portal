@@ -29,8 +29,10 @@
 
                     {{-- Desktop Nav --}}
                     <div class="hidden lg:flex items-center space-x-6">
-                        <a href="{{ url('/') }}" class="@yield('nav-home', 'nav-link')">Home</a>
-                        <a href="{{ url('/#jobs') }}" class="nav-link">Job Listings</a>
+                        <a href="{{ url('/') }}" class="nav-link" data-nav="home">Home</a>
+                        <a href="{{ url('/#jobs') }}" class="nav-link" data-nav="jobs">Job Listings</a>
+                        <a href="{{ url('/#services') }}" class="nav-link" data-nav="services">Services</a>
+                        <a href="{{ url('/contact') }}" class="nav-link" data-nav="contact">Contact</a>
                         <!-- About Dropdown -->
                         <div class="relative group">
                             <button class="nav-link flex items-center gap-1">
@@ -46,8 +48,6 @@
                                 <hr class="my-1 border-gray-100">
                             </div>
                         </div>
-                        <a href="{{ url('/#services') }}" class="nav-link">Services</a>
-                        <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
                         <a href="#" class="btn-login">Login</a>
                         <a href="#" class="btn-outline-white">Register</a>
                     </div>
@@ -67,8 +67,10 @@
             {{-- Mobile Menu --}}
             <div id="mobile-menu" class="hidden lg:hidden bg-blue-800 border-t border-blue-700">
                 <div class="nav-container py-4 space-y-1">
-                    <a href="{{ url('/') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Home</a>
-                    <a href="{{ url('/#jobs') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Job Listings</a>
+                    <a href="{{ url('/') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition" data-nav-mobile="home">Home</a>
+                    <a href="{{ url('/#jobs') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition" data-nav-mobile="jobs">Job Listings</a>
+                    <a href="{{ url('/#services') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition" data-nav-mobile="services">Services</a>
+                    <a href="{{ url('/contact') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition" data-nav-mobile="contact">Contact</a>
 
                     {{-- Get To Know Us (collapsible) --}}
                     <div>
@@ -84,9 +86,6 @@
                             <a href="{{ url('/about/vision') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Vision</a>
                         </div>
                     </div>
-
-                    <a href="{{ url('/#services') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Services</a>
-                    <a href="{{ url('/contact') }}" class="block px-4 py-3 text-blue-200 hover:bg-blue-700 hover:text-white rounded-lg font-medium transition">Contact</a>
 
                     <div class="pt-3 mt-3 border-t border-blue-700 flex flex-col gap-3 px-4">
                         <a href="#" class="btn-login text-center">Login</a>
