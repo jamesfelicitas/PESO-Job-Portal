@@ -161,8 +161,13 @@
                     <input type="checkbox" id="terms" name="terms"
                         class="mt-1 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer flex-shrink-0">
                     <label for="terms" class="text-sm text-gray-600 cursor-pointer leading-relaxed">
-                        I agree to the <a href="#" class="text-blue-600 hover:underline font-semibold">Terms of Service</a>
-                        and <a href="#" class="text-blue-600 hover:underline font-semibold">Privacy Policy</a> of PESO Job Portal System.
+                        I have read and agree to the
+                        <button type="button" onclick="openModal('terms-modal')"
+                            class="text-blue-600 hover:underline font-semibold focus:outline-none">Terms of Service</button>
+                        and
+                        <button type="button" onclick="openModal('privacy-modal')"
+                            class="text-blue-600 hover:underline font-semibold focus:outline-none">Privacy Policy</button>
+                        of PESO Job Portal System.
                     </label>
                 </div>
 
@@ -181,6 +186,183 @@
             </form>
         </div>
 
+        {{-- ===== TERMS OF SERVICE MODAL ===== --}}
+        <div id="terms-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title">
+            {{-- Backdrop --}}
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal('terms-modal')"></div>
+
+            {{-- Panel --}}
+            <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 flex flex-col max-h-[85vh]">
+                {{-- Modal Header --}}
+                <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 id="terms-modal-title" class="text-lg font-bold text-gray-900">Terms of Service</h3>
+                    </div>
+                    <button type="button" onclick="closeModal('terms-modal')" class="text-gray-400 hover:text-gray-600 transition p-1 rounded-lg hover:bg-gray-100">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                {{-- Scrollable Body --}}
+                <div class="overflow-y-auto px-6 py-5 space-y-5 text-sm text-gray-600 leading-relaxed">
+
+                    <p>Last updated: <span class="font-semibold text-gray-800">March 9, 2026</span></p>
+                    <p>Welcome to the <span class="font-semibold text-gray-800">PESO Job Portal System</span> operated by the Public Employment Service Office (PESO) of Manolo Fortich, Bukidnon. By registering as an employer, you agree to the following terms and conditions.</p>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">1. Eligibility</h4>
+                        <p>To register as an employer, you must be a duly registered business, organization, or government agency operating within the Philippines. By registering, you confirm that all information provided is accurate and truthful.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">2. Account Responsibilities</h4>
+                        <p>You are responsible for maintaining the confidentiality of your account credentials. Any activity conducted through your account is your sole responsibility. Notify PESO immediately of any unauthorized use.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">3. Job Posting Guidelines</h4>
+                        <p>All job postings must comply with Philippine labor laws, including the Labor Code of the Philippines and applicable DOLE regulations. Job postings must not contain discriminatory language based on age, sex, religion, ethnicity, or disability.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">4. Prohibited Activities</h4>
+                        <ul class="list-disc list-inside space-y-1 mt-1">
+                            <li>Posting fraudulent, misleading, or illegal job offers.</li>
+                            <li>Collecting fees from jobseekers (prohibited under RA 8759).</li>
+                            <li>Using the platform for activities unrelated to employment.</li>
+                            <li>Scraping or harvesting applicant data without consent.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">5. Compliance with RA 8759</h4>
+                        <p>The PESO Job Portal operates under Republic Act No. 8759 (PESO Act of 1999). Employers must adhere to the provisions of this act, including free and non-discriminatory employment facilitation.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">6. Account Suspension</h4>
+                        <p>PESO reserves the right to suspend or terminate employer accounts found violating these terms, posting fraudulent listings, or engaging in any activity harmful to jobseekers.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">7. Modifications</h4>
+                        <p>PESO reserves the right to update these Terms of Service at any time. Continued use of the portal after changes constitutes acceptance of the revised terms.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">8. Contact</h4>
+                        <p>For questions regarding these terms, contact PESO Manolo Fortich at the Municipal Hall, Manolo Fortich, Bukidnon or through our <a href="{{ url('/contact') }}" class="text-blue-600 hover:underline">Contact Page</a>.</p>
+                    </div>
+
+                </div>
+
+                {{-- Footer --}}
+                <div class="px-6 py-4 border-t border-gray-100 flex justify-end gap-3">
+                    <button type="button" onclick="closeModal('terms-modal')"
+                        class="px-5 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
+                        Close
+                    </button>
+                    <button type="button" onclick="acceptTerms('terms-modal')"
+                        class="px-5 py-2.5 rounded-xl bg-blue-700 hover:bg-blue-800 text-sm font-semibold text-white transition">
+                        I Agree
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        {{-- ===== PRIVACY POLICY MODAL ===== --}}
+        <div id="privacy-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+            {{-- Backdrop --}}
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal('privacy-modal')"></div>
+
+            {{-- Panel --}}
+            <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 flex flex-col max-h-[85vh]">
+                {{-- Modal Header --}}
+                <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 id="privacy-modal-title" class="text-lg font-bold text-gray-900">Privacy Policy</h3>
+                    </div>
+                    <button type="button" onclick="closeModal('privacy-modal')" class="text-gray-400 hover:text-gray-600 transition p-1 rounded-lg hover:bg-gray-100">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                {{-- Scrollable Body --}}
+                <div class="overflow-y-auto px-6 py-5 space-y-5 text-sm text-gray-600 leading-relaxed">
+
+                    <p>Last updated: <span class="font-semibold text-gray-800">March 9, 2026</span></p>
+                    <p>PESO Manolo Fortich is committed to protecting the privacy of all users of this portal, in compliance with the <span class="font-semibold text-gray-800">Data Privacy Act of 2012 (RA 10173)</span>.</p>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">1. Information We Collect</h4>
+                        <p>We collect personal information you provide during registration, including company name, contact person details, email address, phone number, and business address.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">2. How We Use Your Information</h4>
+                        <ul class="list-disc list-inside space-y-1 mt-1">
+                            <li>To create and manage your employer account.</li>
+                            <li>To facilitate job postings and applicant matching.</li>
+                            <li>To communicate updates, notices, and service information.</li>
+                            <li>To comply with legal and regulatory obligations.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">3. Data Sharing</h4>
+                        <p>We do not sell or rent your personal data to third parties. Your information may be shared with DOLE regional offices and partner government agencies solely for employment facilitation purposes.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">4. Data Security</h4>
+                        <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or disclosure.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">5. Your Rights</h4>
+                        <p>Under RA 10173, you have the right to access, correct, and request deletion of your personal data. To exercise these rights, contact PESO Manolo Fortich directly.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">6. Cookies</h4>
+                        <p>This portal may use session cookies strictly necessary for authentication and security. No tracking or advertising cookies are used.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-1">7. Contact</h4>
+                        <p>For privacy-related concerns, reach us at the Municipal Hall, Manolo Fortich, Bukidnon or through our <a href="{{ url('/contact') }}" class="text-blue-600 hover:underline">Contact Page</a>.</p>
+                    </div>
+
+                </div>
+
+                {{-- Footer --}}
+                <div class="px-6 py-4 border-t border-gray-100 flex justify-end gap-3">
+                    <button type="button" onclick="closeModal('privacy-modal')"
+                        class="px-5 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition">
+                        Close
+                    </button>
+                    <button type="button" onclick="acceptTerms('privacy-modal')"
+                        class="px-5 py-2.5 rounded-xl bg-blue-700 hover:bg-blue-800 text-sm font-semibold text-white transition">
+                        I Agree
+                    </button>
+                </div>
+            </div>
+        </div>
+
         {{-- Back to home --}}
         <div class="text-center mt-6">
             <a href="{{ url('/') }}" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-700 transition font-medium">
@@ -195,6 +377,33 @@
 </section>
 
 <script>
+    // Modal helpers
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    // Clicking "I Agree" checks the terms checkbox and closes
+    function acceptTerms(id) {
+        document.getElementById('terms').checked = true;
+        closeModal(id);
+    }
+
+    // Close modals on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal('terms-modal');
+            closeModal('privacy-modal');
+        }
+    });
+
     function togglePassword(fieldId, btn) {
         const input = document.getElementById(fieldId);
         const isPassword = input.type === 'password';
