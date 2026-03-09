@@ -4,22 +4,22 @@
 
 @section('content')
 
-<section class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-    <div class="w-full max-w-md">
+<section class="min-h-screen bg-gray-50 py-6 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div class="w-full max-w-sm sm:max-w-md">
 
         {{-- Card --}}
         <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
 
             {{-- Header --}}
-            <div class="bg-linear-to-br from-blue-900 via-blue-800 to-blue-700 px-8 py-10 text-center">
+            <div class="bg-linear-to-br from-blue-900 via-blue-800 to-blue-700 px-6 py-6 text-center">
                 <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" width="10" height="10"
-                    class="w-25 h-25 rounded-full object-cover shadow-lg mx-auto mb-4">
-                <h1 class="text-2xl font-extrabold text-white">Employer Login</h1>
-                <p class="text-blue-200 text-sm mt-1">Welcome back! Sign in to manage your job postings.</p>
+                    class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover shadow-lg mx-auto mb-3">
+                <h1 class="text-xl sm:text-2xl font-extrabold text-white">Employer Login</h1>
+                <p class="text-blue-200 text-xs sm:text-sm mt-1">Welcome back! Sign in to manage your job postings.</p>
             </div>
 
             {{-- Form --}}
-            <form class="px-8 py-10 space-y-5" action="#" method="POST">
+            <form class="px-6 py-6 space-y-4" action="#" method="POST">
                 @csrf
 
                 {{-- Email --}}
@@ -75,7 +75,7 @@
 
                 {{-- Submit --}}
                 <button type="submit"
-                    class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3.5 rounded-xl transition text-base shadow-md shadow-orange-500/30">
+                    class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3 rounded-xl transition text-base shadow-md shadow-orange-500/30">
                     Sign In
                 </button>
 
@@ -91,7 +91,7 @@
 
                 {{-- Register link --}}
                 <a href="{{ route('employer.register') }}"
-                    class="w-full flex justify-center items-center gap-2 border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white font-bold py-3 rounded-xl transition text-sm">
+                    class="w-full flex justify-center items-center gap-2 border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white font-bold py-2.5 rounded-xl transition text-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
                     </svg>

@@ -44,9 +44,6 @@ Route::post('/register/employer', function (\Illuminate\Http\Request $request) {
         'phone'        => 'required|string|max:20',
         'email'        => 'required|email|max:255',
         'password'     => 'required|string|min:8|confirmed',
-        'terms'        => 'accepted',
-    ], [
-        'terms.accepted' => 'You must agree to the Terms of Service and Privacy Policy.',
     ]);
 
     // TODO: Store employer registration when backend is ready
