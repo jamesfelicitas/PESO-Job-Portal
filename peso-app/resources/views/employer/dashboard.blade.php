@@ -4,6 +4,13 @@
 
 @section('content')
 
+@php
+    $jobs = collect(session('employer_jobs', []));
+    $totalJobs = $jobs->count();
+    $activeJobs = $jobs->where('status', 'active')->count();
+    $totalApplicants = $jobs->sum('applicants');
+@endphp
+
 {{-- Page header --}}
 <div class="mb-6">
     <h1 class="text-2xl font-extrabold text-gray-900">Dashboard</h1>
@@ -20,7 +27,7 @@
             </svg>
         </div>
         <div>
-            <p class="text-2xl font-extrabold text-gray-900">0</p>
+            <p class="text-2xl font-extrabold text-gray-900">{{ $totalJobs }}</p>
             <p class="text-sm text-gray-500">Total Job Postings</p>
         </div>
     </div>
@@ -32,7 +39,7 @@
             </svg>
         </div>
         <div>
-            <p class="text-2xl font-extrabold text-gray-900">0</p>
+            <p class="text-2xl font-extrabold text-gray-900">{{ $activeJobs }}</p>
             <p class="text-sm text-gray-500">Active Listings</p>
         </div>
     </div>
@@ -44,7 +51,7 @@
             </svg>
         </div>
         <div>
-            <p class="text-2xl font-extrabold text-gray-900">0</p>
+            <p class="text-2xl font-extrabold text-gray-900">{{ $totalApplicants }}</p>
             <p class="text-sm text-gray-500">Total Applicants</p>
         </div>
     </div>
@@ -71,28 +78,26 @@
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
             <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Quick Actions</h2>
             <div class="space-y-3">
-                <button disabled
-                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-700 text-white text-sm font-semibold opacity-60 cursor-not-allowed">
+                <a href="{{ route('employer.jobs.create') }}"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold transition">
                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                     </svg>
                     Post a New Job
-                    <span class="ml-auto text-xs bg-blue-800 px-2 py-0.5 rounded-full">Soon</span>
-                </button>
-                <button disabled
-                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 text-gray-500 text-sm font-semibold opacity-60 cursor-not-allowed">
+                </a>
+                <a href="{{ route('employer.jobs.index') }}"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold transition">
                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                    </svg>
+                    View All Job Postings
+                </a>
+                <button disabled
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 text-gray-500 text-sm font-semibold opacity-50 cursor-not-allowed">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
                     </svg>
                     View Applicants
-                    <span class="ml-auto text-xs bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">Soon</span>
-                </button>
-                <button disabled
-                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 text-gray-500 text-sm font-semibold opacity-60 cursor-not-allowed">
-                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                    </svg>
-                    View Reports
                     <span class="ml-auto text-xs bg-gray-100 text-gray-400 px-2 py-0.5 rounded-full">Soon</span>
                 </button>
             </div>

@@ -39,16 +39,13 @@ Route::post('/login/employer', function (\Illuminate\Http\Request $request) {
         'password' => 'required|string',
     ]);
 
-    // Static demo credentials — replace with real auth when backend is ready
-    $demoEmail    = 'employer@peso.gov.ph';
-    $demoPassword = 'password123';
+    // No backend yet — accept any credentials and store in session
+    session(['employer' => [
+        'email'   => $request->email,
+        'company' => 'My Company',
+    ]]);
 
-    if ($request->email === $demoEmail && $request->password === $demoPassword) {
-        session(['employer' => ['email' => $request->email, 'company' => 'Demo Company']]);
-        return redirect()->route('employer.dashboard');
-    }
-
-    return back()->withErrors(['email' => 'Invalid email or password.'])->withInput();
+    return redirect()->route('employer.dashboard');
 })->name('employer.login.post');
 
 Route::get('/employer/dashboard', function () {
@@ -62,6 +59,68 @@ Route::post('/employer/logout', function () {
     session()->forget('employer');
     return redirect()->route('employer.login');
 })->name('employer.logout');
+
+// ── Employer Job Postings (session-based, no DB yet) ──────────────────────────
+
+Route::get('/employer/jobs', function () {
+    if (!session('employer')) return redirect()->route('employer.login');
+    return view('employer.jobs.index');
+})->name('employer.jobs.index');
+
+Route::get('/employer/jobs/create', function () {
+    if (!session('employer')) return redirect()->route('employer.login');
+    return view('employer.jobs.create');
+})->name('employer.jobs.create');
+
+Route::post('/employer/jobs', function (\Illuminate\Http\Request $request) {
+    if (!session('employer')) return redirect()->route('employer.login');
+
+    $data = $request->validate([
+        'title'        => 'required|string|max:255',
+        'job_type'     => 'required|string',
+        'location'     => 'required|string|max:255',
+        'salary_min'   => 'nullable|numeric|min:0',
+        'salary_max'   => 'nullable|numeric|min:0',
+        'slots'        => 'required|integer|min:1',
+        'description'  => 'required|string|max:5000',
+        'requirements' => 'nullable|string|max:3000',
+        'deadline'     => 'nullable|date|after:today',
+    ]);
+
+    $jobs = session('employer_jobs', []);
+    $jobs[] = array_merge($data, [
+        'id'         => uniqid(),
+        'status'     => 'active',
+        'posted_at'  => now()->format('M d, Y'),
+        'applicants' => 0,
+    ]);
+    session(['employer_jobs' => $jobs]);
+
+    return redirect()->route('employer.jobs.index')->with('success', 'Job posting published successfully!');
+})->name('employer.jobs.store');
+
+Route::post('/employer/jobs/{id}/delete', function ($id) {
+    if (!session('employer')) return redirect()->route('employer.login');
+
+    $jobs = collect(session('employer_jobs', []))->reject(fn($j) => $j['id'] === $id)->values()->all();
+    session(['employer_jobs' => $jobs]);
+
+    return redirect()->route('employer.jobs.index')->with('success', 'Job posting removed.');
+})->name('employer.jobs.delete');
+
+Route::post('/employer/jobs/{id}/toggle', function ($id) {
+    if (!session('employer')) return redirect()->route('employer.login');
+
+    $jobs = collect(session('employer_jobs', []))->map(function ($j) use ($id) {
+        if ($j['id'] === $id) {
+            $j['status'] = $j['status'] === 'active' ? 'closed' : 'active';
+        }
+        return $j;
+    })->all();
+    session(['employer_jobs' => $jobs]);
+
+    return redirect()->route('employer.jobs.index')->with('success', 'Job status updated.');
+})->name('employer.jobs.toggle');
 
 Route::get('/privacy-policy', function () {
     return view('privacy-policy');
