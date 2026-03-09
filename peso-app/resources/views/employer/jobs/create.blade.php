@@ -1,6 +1,6 @@
 @extends('layouts.employer')
 
-@section('title', 'Post a Job')
+@section('title', 'Post a Job Vacancy')
 
 @section('content')
 
@@ -13,12 +13,12 @@
     </a>
     <div>
         <h1 class="text-2xl font-extrabold text-gray-900">Post a Job Vacancy</h1>
-        <p class="text-sm text-gray-500 mt-0.5">Fill in the details below to publish your job listing.</p>
+        <p class="text-sm text-gray-500 mt-0.5">PESO Manolo Fortich — Job Vacancy Form</p>
     </div>
 </div>
 
 <div class="max-w-3xl">
-    <form method="POST" action="{{ route('employer.jobs.store') }}" enctype="multipart/form-data" class="space-y-6">
+    <form method="POST" action="{{ route('employer.jobs.store') }}" enctype="multipart/form-data" class="space-y-5">
         @csrf
 
         @if ($errors->any())
@@ -32,118 +32,240 @@
             </div>
         @endif
 
-        {{-- Job Details --}}
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-5">
-            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Job Details</h2>
-
-            {{-- Company Logo --}}
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">
-                    Company Logo <span class="text-gray-400 font-normal">optional</span>
-                </label>
-                <div class="flex items-center gap-4">
-                    <div id="logo-preview-wrap" class="hidden w-16 h-16 rounded-xl overflow-hidden border border-gray-200 shrink-0">
-                        <img id="logo-preview" src="" class="w-full h-full object-cover">
-                    </div>
-                    <label class="cursor-pointer flex items-center gap-2 px-4 py-3 rounded-xl border border-dashed border-gray-300 hover:border-blue-400 text-sm text-gray-500 hover:text-blue-600 transition">
-                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
-                        </svg>
-                        <span id="logo-label">Upload logo (PNG, JPG, max 2MB)</span>
-                        <input type="file" name="logo" id="logo" accept="image/png,image/jpeg,image/gif,image/webp" class="hidden" onchange="previewLogo(this)">
-                    </label>
-                </div>
+        {{-- ══════════════════════════════════════════════════════════════
+             III. VACANCY DETAILS
+        ══════════════════════════════════════════════════════════════ --}}
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            {{-- Section header --}}
+            <div class="bg-blue-700 px-5 py-2.5 flex items-center gap-2">
+                <span class="text-white font-bold text-sm uppercase tracking-wide">Vacancy Details</span>
             </div>
 
-            <div>
-                <label for="title" class="block text-sm font-semibold text-gray-700 mb-1">
-                    Job Title <span class="text-red-500">*</span>
-                </label>
-                <input type="text" id="title" name="title" value="{{ old('title') }}"
-                    placeholder="e.g. Administrative Assistant, Cashier, Welder"
-                    class="w-full px-4 py-3 rounded-xl border {{ $errors->has('title') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
-            </div>
+            <div class="p-5 space-y-4">
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {{-- Position Title --}}
                 <div>
-                    <label for="job_type" class="block text-sm font-semibold text-gray-700 mb-1">
-                        Employment Type <span class="text-red-500">*</span>
-                    </label>
-                    <select id="job_type" name="job_type"
-                        class="w-full px-4 py-3 rounded-xl border {{ $errors->has('job_type') ? 'border-red-400' : 'border-gray-200' }} text-sm text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition appearance-none cursor-pointer">
-                        <option value="" disabled {{ old('job_type') ? '' : 'selected' }}>Select type</option>
-                        @foreach (['Full-time', 'Part-time', 'Contract', 'Casual', 'Seasonal', 'Apprenticeship', 'Internship'] as $type)
-                            <option value="{{ $type }}" {{ old('job_type') === $type ? 'selected' : '' }}>{{ $type }}</option>
+                    <label for="title" class="block text-sm font-semibold text-gray-700 mb-1">Position Title <span class="text-red-500">*</span></label>
+                    <input type="text" id="title" name="title" value="{{ old('title') }}"
+                        placeholder="e.g. Administrative Assistant, Cashier, Welder"
+                        class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('title') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                </div>
+
+                {{-- Job Description --}}
+                <div>
+                    <label for="description" class="block text-sm font-semibold text-gray-700 mb-1">Job Description <span class="text-red-500">*</span></label>
+                    <textarea id="description" name="description" rows="4"
+                        placeholder="Duties and responsibilities of the position..."
+                        class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('description') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400 resize-y">{{ old('description') }}</textarea>
+                </div>
+
+                {{-- Nature of Work --}}
+                <div>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">Nature of Work <span class="text-red-500">*</span></p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
+                        @foreach ([
+                            'Permanent'                   => 'Permanent',
+                            'Contractual'                 => 'Contractual',
+                            'Project-based'               => 'Project-based',
+                            'Internship/OJT'              => 'Internship / OJT',
+                            'Part-time'                   => 'Part-time',
+                            'Work from home/online job'   => 'Work from home / online job',
+                        ] as $val => $label)
+                        <label class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                            <input type="checkbox" name="nature_of_work[]" value="{{ $val }}"
+                                {{ in_array($val, old('nature_of_work', [])) ? 'checked' : '' }}
+                                class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            {{ $label }}
+                        </label>
                         @endforeach
-                    </select>
-                </div>
-
-                <div>
-                    <label for="location" class="block text-sm font-semibold text-gray-700 mb-1">
-                        Work Location <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" id="location" name="location" value="{{ old('location') }}"
-                        placeholder="e.g. Manolo Fortich, Bukidnon"
-                        class="w-full px-4 py-3 rounded-xl border {{ $errors->has('location') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
-                </div>
-
-                <div>
-                    <label for="slots" class="block text-sm font-semibold text-gray-700 mb-1">
-                        No. of Vacancies <span class="text-red-500">*</span>
-                    </label>
-                    <input type="number" id="slots" name="slots" value="{{ old('slots', 1) }}" min="1"
-                        class="w-full px-4 py-3 rounded-xl border {{ $errors->has('slots') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition">
-                </div>
-
-                <div>
-                    <label for="deadline" class="block text-sm font-semibold text-gray-700 mb-1">Application Deadline</label>
-                    <input type="date" id="deadline" name="deadline" value="{{ old('deadline') }}"
-                        class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label for="salary_min" class="block text-sm font-semibold text-gray-700 mb-1">Monthly Salary (Min) <span class="text-gray-400 font-normal">optional</span></label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 text-sm font-semibold pointer-events-none">₱</span>
-                        <input type="number" id="salary_min" name="salary_min" value="{{ old('salary_min') }}" min="0" step="500"
-                            placeholder="e.g. 15000"
-                            class="w-full pl-8 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                     </div>
                 </div>
-                <div>
-                    <label for="salary_max" class="block text-sm font-semibold text-gray-700 mb-1">Monthly Salary (Max) <span class="text-gray-400 font-normal">optional</span></label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 text-sm font-semibold pointer-events-none">₱</span>
-                        <input type="number" id="salary_max" name="salary_max" value="{{ old('salary_max') }}" min="0" step="500"
-                            placeholder="e.g. 25000"
-                            class="w-full pl-8 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+
+                {{-- Place of Work / Salary / Vacancy Count --}}
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="sm:col-span-1">
+                        <label for="location" class="block text-sm font-semibold text-gray-700 mb-1">Place of Work <span class="text-red-500">*</span></label>
+                        <input type="text" id="location" name="location" value="{{ old('location') }}"
+                            placeholder="e.g. Manolo Fortich, Bukidnon"
+                            class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('location') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                    <div>
+                        <label for="salary" class="block text-sm font-semibold text-gray-700 mb-1">Salary <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="salary" name="salary" value="{{ old('salary') }}"
+                            placeholder="e.g. ₱15,000 / month"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                    <div>
+                        <label for="slots" class="block text-sm font-semibold text-gray-700 mb-1">Vacancy Count <span class="text-red-500">*</span></label>
+                        <input type="number" id="slots" name="slots" value="{{ old('slots', 1) }}" min="1"
+                            class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('slots') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition">
                     </div>
                 </div>
+
             </div>
         </div>
 
-        {{-- Description & Requirements --}}
-        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-5">
-            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Description & Requirements</h2>
-
-            <div>
-                <label for="description" class="block text-sm font-semibold text-gray-700 mb-1">
-                    Job Description <span class="text-red-500">*</span>
-                </label>
-                <textarea id="description" name="description" rows="6"
-                    placeholder="Describe the role, responsibilities, and what a typical day looks like..."
-                    class="w-full px-4 py-3 rounded-xl border {{ $errors->has('description') ? 'border-red-400' : 'border-gray-200' }} text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400 resize-y">{{ old('description') }}</textarea>
+        {{-- ══════════════════════════════════════════════════════════════
+             IV. QUALIFICATION REQUIREMENTS
+        ══════════════════════════════════════════════════════════════ --}}
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <div class="bg-blue-700 px-5 py-2.5 flex items-center gap-2">
+                
+                <span class="text-white font-bold text-sm uppercase tracking-wide">Qualification Requirements</span>
             </div>
 
-            <div>
-                <label for="requirements" class="block text-sm font-semibold text-gray-700 mb-1">
-                    Qualifications / Requirements <span class="text-gray-400 font-normal">optional</span>
-                </label>
-                <textarea id="requirements" name="requirements" rows="4"
-                    placeholder="e.g. At least high school graduate, with 1 year experience, must be a resident of Manolo Fortich..."
-                    class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400 resize-y">{{ old('requirements') }}</textarea>
+            <div class="p-5 space-y-4">
+
+                {{-- Work Experience --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="work_experience" class="block text-sm font-semibold text-gray-700 mb-1">Work Experience (month/s) <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="work_experience" name="work_experience" value="{{ old('work_experience') }}"
+                            placeholder="e.g. 6 months, 2 years"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                    <div>
+                        <label for="requirements" class="block text-sm font-semibold text-gray-700 mb-1">Other Qualifications <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="requirements" name="requirements" value="{{ old('requirements') }}"
+                            placeholder="e.g. With NCII, driver's license"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                </div>
+
+                {{-- Accepts PWD --}}
+                <div class="border border-gray-100 rounded-xl p-4 space-y-3">
+                    <div class="flex flex-wrap items-center gap-6">
+                        <p class="text-sm font-semibold text-gray-700">Accepts persons with disabilities (PWD)?</p>
+                        <div class="flex gap-4">
+                            <label class="flex items-center gap-1.5 text-sm text-gray-600 cursor-pointer">
+                                <input type="radio" name="accepts_pwd" value="yes" {{ old('accepts_pwd') === 'yes' ? 'checked' : '' }}
+                                    onclick="document.getElementById('pwd-types').classList.remove('hidden')"
+                                    class="text-blue-600 focus:ring-blue-500"> Yes
+                            </label>
+                            <label class="flex items-center gap-1.5 text-sm text-gray-600 cursor-pointer">
+                                <input type="radio" name="accepts_pwd" value="no" {{ old('accepts_pwd', 'no') === 'no' ? 'checked' : '' }}
+                                    onclick="document.getElementById('pwd-types').classList.add('hidden')"
+                                    class="text-blue-600 focus:ring-blue-500"> No
+                            </label>
+                        </div>
+                    </div>
+                    <div id="pwd-types" class="{{ old('accepts_pwd') === 'yes' ? '' : 'hidden' }} space-y-2">
+                        <p class="text-xs text-gray-500 font-medium">If "yes", specify type of disability:</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
+                            @foreach (['Visual', 'Hearing', 'Speech', 'Physical', 'Mental'] as $dtype)
+                            <label class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                                <input type="checkbox" name="pwd_types[]" value="{{ $dtype }}"
+                                    {{ in_array($dtype, old('pwd_types', [])) ? 'checked' : '' }}
+                                    class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                                {{ $dtype }}
+                            </label>
+                            @endforeach
+                            <div class="sm:col-span-3 flex items-center gap-2">
+                                <label class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer shrink-0">
+                                    <input type="checkbox" name="pwd_types[]" value="Others"
+                                        {{ in_array('Others', old('pwd_types', [])) ? 'checked' : '' }}
+                                        class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                                    Others (please specify):
+                                </label>
+                                <input type="text" name="pwd_other" value="{{ old('pwd_other') }}"
+                                    class="flex-1 border-b border-gray-300 text-sm focus:outline-none focus:border-blue-500 py-0.5 bg-transparent placeholder:text-gray-400"
+                                    placeholder="specify disability">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Accepts OFW --}}
+                <div class="flex flex-wrap items-center gap-6">
+                    <p class="text-sm font-semibold text-gray-700">Accepts returning OFWs?</p>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-1.5 text-sm text-gray-600 cursor-pointer">
+                            <input type="radio" name="accepts_ofw" value="yes" {{ old('accepts_ofw') === 'yes' ? 'checked' : '' }}
+                                class="text-blue-600 focus:ring-blue-500"> Yes
+                        </label>
+                        <label class="flex items-center gap-1.5 text-sm text-gray-600 cursor-pointer">
+                            <input type="radio" name="accepts_ofw" value="no" {{ old('accepts_ofw', 'no') === 'no' ? 'checked' : '' }}
+                                class="text-blue-600 focus:ring-blue-500"> No
+                        </label>
+                    </div>
+                </div>
+
+                {{-- Educational Level / Course --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="educational_level" class="block text-sm font-semibold text-gray-700 mb-1">Educational Level <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <select id="educational_level" name="educational_level"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition appearance-none cursor-pointer">
+                            <option value="">-- Select --</option>
+                            @foreach (['Elementary Graduate', 'High School Graduate', 'Senior High School Graduate', 'Vocational / TESDA', 'College Level', 'College Graduate', 'Post Graduate'] as $edu)
+                                <option value="{{ $edu }}" {{ old('educational_level') === $edu ? 'selected' : '' }}>{{ $edu }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                        <label for="course_strand" class="block text-sm font-semibold text-gray-700 mb-1">Course / SHS Strand <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="course_strand" name="course_strand" value="{{ old('course_strand') }}"
+                            placeholder="e.g. BS Accountancy, STEM, HUMSS"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                </div>
+
+                {{-- Eligibility / Language --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="eligibility" class="block text-sm font-semibold text-gray-700 mb-1">Eligibility <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="eligibility" name="eligibility" value="{{ old('eligibility') }}"
+                            placeholder="e.g. PRC Board Passer, CSE"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                    <div>
+                        <label for="language_dialect" class="block text-sm font-semibold text-gray-700 mb-1">Language / Dialect Spoken <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="language_dialect" name="language_dialect" value="{{ old('language_dialect') }}"
+                            placeholder="e.g. English, Filipino, Bisaya"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                </div>
+
+                {{-- License / Certification --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="license" class="block text-sm font-semibold text-gray-700 mb-1">License <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="license" name="license" value="{{ old('license') }}"
+                            placeholder="e.g. Driver's License, PRC License"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                    <div>
+                        <label for="certification" class="block text-sm font-semibold text-gray-700 mb-1">Certification <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="text" id="certification" name="certification" value="{{ old('certification') }}"
+                            placeholder="e.g. NCII, ISO Certified"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {{-- ══════════════════════════════════════════════════════════════
+             V. POSTING DETAILS
+        ══════════════════════════════════════════════════════════════ --}}
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <div class="bg-blue-700 px-5 py-2.5 flex items-center gap-2">
+                <span class="text-white font-bold text-sm uppercase tracking-wide">Posting Details</span>
+            </div>
+
+            <div class="p-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap 4">
+                    <div>
+                        <label for="posting_date" class="block text-sm font-semibold text-gray-700 mb-1">Posting Date</label>
+                        <input type="date" id="posting_date" name="posting_date" value="{{ old('posting_date', date('Y-m-d')) }}"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition">
+                    </div>
+                    <div>
+                        <label for="deadline" class="block text-sm font-semibold text-gray-700 mb-1">Valid Until <span class="text-gray-400 font-normal text-xs">optional</span></label>
+                        <input type="date" id="deadline" name="deadline" value="{{ old('deadline') }}"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition">
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -177,12 +299,9 @@ function previewLogo(input) {
     }
     const reader = new FileReader();
     reader.onload = function(e) {
-        const preview = document.getElementById('logo-preview');
-        const wrap = document.getElementById('logo-preview-wrap');
-        const label = document.getElementById('logo-label');
-        preview.src = e.target.result;
-        wrap.classList.remove('hidden');
-        label.textContent = file.name;
+        document.getElementById('logo-preview').src = e.target.result;
+        document.getElementById('logo-preview-wrap').classList.remove('hidden');
+        document.getElementById('logo-label').textContent = file.name;
     };
     reader.readAsDataURL(file);
 }
