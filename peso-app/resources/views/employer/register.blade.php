@@ -203,7 +203,7 @@
 </section>
 
 {{-- Info Modal (Privacy Policy / Terms of Service) --}}
-<div id="info-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true">
+<div id="info-modal" class="hidden fixed inset-0 z-50 items-center justify-center" role="dialog" aria-modal="true">
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeInfoModal()"></div>
     <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 flex flex-col max-h-[85vh]">
 

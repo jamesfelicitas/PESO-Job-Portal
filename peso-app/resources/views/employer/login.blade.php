@@ -19,8 +19,20 @@
             </div>
 
             {{-- Form --}}
-            <form class="px-6 py-6 space-y-4" action="#" method="POST">
+            <form class="px-6 py-6 space-y-4" action="{{ route('employer.login.post') }}" method="POST">
                 @csrf
+
+                @if (session('success'))
+                    <div class="bg-green-50 border border-green-200 text-green-800 rounded-xl px-4 py-3 text-sm font-medium">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 text-sm font-medium">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
 
                 {{-- Email --}}
                 <div>
@@ -35,7 +47,8 @@
                             </svg>
                         </span>
                         <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email"
-                            class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                            value="{{ old('email') }}"
+                            class="w-full pl-11 pr-4 py-3 rounded-xl border {{ $errors->has('email') ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-gray-200 focus:border-blue-500 focus:ring-blue-500/10' }} text-sm focus:outline-none focus:ring-4 transition placeholder:text-gray-400">
                     </div>
                 </div>
 

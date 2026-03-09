@@ -27,8 +27,41 @@ Route::get('/register/employer', function () {
 })->name('employer.register');
 
 Route::get('/login/employer', function () {
+    if (session('employer')) {
+        return redirect()->route('employer.dashboard');
+    }
     return view('employer.login');
 })->name('employer.login');
+
+Route::post('/login/employer', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'email'    => 'required|email',
+        'password' => 'required|string',
+    ]);
+
+    // Static demo credentials — replace with real auth when backend is ready
+    $demoEmail    = 'employer@peso.gov.ph';
+    $demoPassword = 'password123';
+
+    if ($request->email === $demoEmail && $request->password === $demoPassword) {
+        session(['employer' => ['email' => $request->email, 'company' => 'Demo Company']]);
+        return redirect()->route('employer.dashboard');
+    }
+
+    return back()->withErrors(['email' => 'Invalid email or password.'])->withInput();
+})->name('employer.login.post');
+
+Route::get('/employer/dashboard', function () {
+    if (!session('employer')) {
+        return redirect()->route('employer.login');
+    }
+    return view('employer.dashboard');
+})->name('employer.dashboard');
+
+Route::post('/employer/logout', function () {
+    session()->forget('employer');
+    return redirect()->route('employer.login');
+})->name('employer.logout');
 
 Route::get('/privacy-policy', function () {
     return view('privacy-policy');
@@ -47,7 +80,7 @@ Route::post('/register/employer', function (\Illuminate\Http\Request $request) {
     ]);
 
     // TODO: Store employer registration when backend is ready
-    return back()->with('success', 'Registration submitted successfully! PESO will review your account.');
+    return redirect()->route('employer.login')->with('success', 'Registration submitted! Please log in to your account.');
 })->name('employer.register.post');
 
 Route::post('/contact', function (\Illuminate\Http\Request $request) {
