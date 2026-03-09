@@ -215,10 +215,7 @@
                 </div>
             </div>
         </section>
-
-        {{-- ========== JOB FAIRS & EVENTS ========== --}}
         
-
         {{-- ========== FEATURES SECTION ========== --}}
         <section id="services" class="py-20 bg-gray-50">
             <div class="nav-container">

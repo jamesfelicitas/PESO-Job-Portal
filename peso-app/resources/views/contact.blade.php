@@ -23,7 +23,7 @@
                                 </svg>
                             </div>
                             <h3 class="text-lg font-bold text-gray-900 mb-2">Office Address</h3>
-                            <p class="text-gray-600 text-sm">Municipal Hall, Manolo Fortich, Bukidnon</p>
+                            <p class="text-gray-600 text-sm">Motorpool, Manolo Fortich, Bukidnon</p>
                         </div>
 
                         {{-- Email --}}
