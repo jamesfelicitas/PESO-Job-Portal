@@ -203,9 +203,9 @@
 </section>
 
 {{-- Info Modal (Privacy Policy / Terms of Service) --}}
-<div id="info-modal" class="hidden fixed inset-0 z-50 items-center justify-center" role="dialog" aria-modal="true">
+<div id="info-modal" class="hidden fixed inset-0 z-50 p-4 items-center justify-center" role="dialog" aria-modal="true">
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeInfoModal()"></div>
-    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 flex flex-col max-h-[85vh]">
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto flex flex-col" style="max-height: min(85vh, 600px)">
 
         {{-- Header --}}
         <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
@@ -259,12 +259,16 @@
 
 <script>
     function openInfoModal(tab) {
-        document.getElementById('info-modal').classList.remove('hidden');
+        const modal = document.getElementById('info-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
         switchInfoTab(tab);
     }
     function closeInfoModal() {
-        document.getElementById('info-modal').classList.add('hidden');
+        const modal = document.getElementById('info-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
         document.body.style.overflow = '';
     }
     function switchInfoTab(tab) {
