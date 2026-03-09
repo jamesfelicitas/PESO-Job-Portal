@@ -18,8 +18,31 @@
                 <p class="text-blue-200 text-sm mt-1">Post jobs and find the right talent through PESO Manolo Fortich</p>
             </div>
 
+            {{-- Step Indicator --}}
+            <div class="px-8 pt-7 pb-2">
+                <div class="flex items-center justify-center gap-0">
+                    {{-- Step I --}}
+                    <div class="flex flex-col items-center step-indicator" data-step="1">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 step-circle-1 bg-blue-700 border-blue-700 text-white">I</div>
+                        <span class="text-xs mt-1 font-semibold step-label-1 text-blue-700">Establishment</span>
+                    </div>
+                    <div class="h-0.5 w-16 sm:w-24 step-bar-1 bg-blue-700 transition-all duration-300 mb-4"></div>
+                    {{-- Step II --}}
+                    <div class="flex flex-col items-center step-indicator" data-step="2">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 step-circle-2 bg-gray-100 border-gray-300 text-gray-400">II</div>
+                        <span class="text-xs mt-1 font-semibold step-label-2 text-gray-400">Contact</span>
+                    </div>
+                    <div class="h-0.5 w-16 sm:w-24 step-bar-2 bg-gray-200 transition-all duration-300 mb-4"></div>
+                    {{-- Step III --}}
+                    <div class="flex flex-col items-center step-indicator" data-step="3">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 step-circle-3 bg-gray-100 border-gray-300 text-gray-400">III</div>
+                        <span class="text-xs mt-1 font-semibold step-label-3 text-gray-400">Account</span>
+                    </div>
+                </div>
+            </div>
+
             {{-- Form --}}
-            <form class="px-8 py-10 space-y-6" action="{{ route('employer.register.post') }}" method="POST">
+            <form class="px-8 py-8 space-y-6" action="{{ route('employer.register.post') }}" method="POST">
                 @csrf
 
                 @if (session('success'))
@@ -28,7 +51,8 @@
                     </div>
                 @endif
 
-                {{-- I. Establishment Details --}}
+                {{-- STEP 1: Establishment Details --}}
+                <div id="step-1" class="step-panel space-y-6">
                 <div>
                     <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                         <span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center font-bold shrink-0">I</span>
@@ -150,9 +174,20 @@
                     </div>
                 </div>
 
-                <hr class="border-gray-100">
+                {{-- Step 1 Next Button --}}
+                <div class="flex justify-end pt-2">
+                    <button type="button" onclick="goToStep(2)"
+                        class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-7 rounded-xl transition text-sm shadow-md shadow-blue-700/20">
+                        Next
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                </div>{{-- /step-1 --}}
 
-                {{-- II. Establishment Contact Details --}}
+                {{-- STEP 2: Establishment Contact Details --}}
+                <div id="step-2" class="step-panel hidden space-y-6">
                 <div>
                     <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                         <span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center font-bold shrink-0">II</span>
@@ -205,9 +240,27 @@
                     </div>
                 </div>
 
-                <hr class="border-gray-100">
+                {{-- Step 2 Back/Next Buttons --}}
+                <div class="flex justify-between pt-2">
+                    <button type="button" onclick="goToStep(1)"
+                        class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-7 rounded-xl transition text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        Back
+                    </button>
+                    <button type="button" onclick="goToStep(3)"
+                        class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-7 rounded-xl transition text-sm shadow-md shadow-blue-700/20">
+                        Next
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                </div>{{-- /step-2 --}}
 
-                {{-- Account Credentials --}}
+                {{-- STEP 3: Account Credentials --}}
+                <div id="step-3" class="step-panel hidden space-y-6">
                 <div>
                     <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1 flex items-center gap-2">
                         <span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center font-bold shrink-0">III</span>
@@ -263,11 +316,22 @@
                     </label>
                 </div>
 
-                {{-- Submit --}}
-                <button type="submit"
-                    class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3.5 rounded-xl transition text-base shadow-md shadow-orange-500/30">
-                    Create Employer Account
-                </button>
+                {{-- Step 3 Back/Submit Buttons --}}
+                <div class="flex justify-between pt-2">
+                    <button type="button" onclick="goToStep(2)"
+                        class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-7 rounded-xl transition text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        Back
+                    </button>
+                    <button type="submit"
+                        class="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3 px-7 rounded-xl transition text-sm shadow-md shadow-orange-500/30">
+                        Create Employer Account
+                    </button>
+                </div>
+
+                </div>{{-- /step-3 --}}
 
                 {{-- Login redirect --}}
                 <p class="text-center text-sm text-gray-500">
@@ -347,6 +411,93 @@
 
 
 <script>
+    // ── Multi-step wizard ──────────────────────────────────────────────────
+    const TOTAL_STEPS = 3;
+    let currentStep = 1;
+
+    function goToStep(n) {
+        if (n < 1 || n > TOTAL_STEPS) return;
+        if (n > currentStep && !validateStep(currentStep)) return;
+
+        document.getElementById('step-' + currentStep).classList.add('hidden');
+        currentStep = n;
+        document.getElementById('step-' + currentStep).classList.remove('hidden');
+        updateStepIndicator();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateStep(step) {
+        const panel = document.getElementById('step-' + step);
+        const required = panel.querySelectorAll('[required]');
+        let valid = true;
+        required.forEach(function(el) {
+            el.classList.remove('border-red-400', 'ring-red-400/10');
+            if (el.type === 'radio' || el.type === 'checkbox') {
+                const group = panel.querySelectorAll('[name="' + el.name + '"]:checked');
+                if (!group.length) {
+                    valid = false;
+                    el.closest('div').classList.add('ring-2', 'ring-red-400/30', 'rounded-xl');
+                }
+            } else if (!el.value.trim()) {
+                el.classList.add('border-red-400', 'focus:ring-red-400/10');
+                valid = false;
+            }
+        });
+        if (!valid) {
+            const first = panel.querySelector('[required]:not(:checked)') || panel.querySelector('.border-red-400');
+            if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return valid;
+    }
+
+    function updateStepIndicator() {
+        for (let i = 1; i <= TOTAL_STEPS; i++) {
+            const circle = document.querySelector('.step-circle-' + i);
+            const label  = document.querySelector('.step-label-' + i);
+            if (i < currentStep) {
+                // completed
+                circle.className = circle.className.replace(/bg-\S+|border-\S+|text-\S+/g, '').trim();
+                circle.classList.add('bg-green-600', 'border-green-600', 'text-white');
+                label.classList.remove('text-gray-400', 'text-blue-700');
+                label.classList.add('text-green-600');
+            } else if (i === currentStep) {
+                // active
+                circle.className = circle.className.replace(/bg-\S+|border-\S+|text-\S+/g, '').trim();
+                circle.classList.add('bg-blue-700', 'border-blue-700', 'text-white');
+                label.classList.remove('text-gray-400', 'text-green-600');
+                label.classList.add('text-blue-700');
+            } else {
+                // upcoming
+                circle.className = circle.className.replace(/bg-\S+|border-\S+|text-\S+/g, '').trim();
+                circle.classList.add('bg-gray-100', 'border-gray-300', 'text-gray-400');
+                label.classList.remove('text-blue-700', 'text-green-600');
+                label.classList.add('text-gray-400');
+            }
+        }
+        // connector bars
+        for (let i = 1; i < TOTAL_STEPS; i++) {
+            const bar = document.querySelector('.step-bar-' + i);
+            if (i < currentStep) {
+                bar.classList.remove('bg-gray-200');
+                bar.classList.add('bg-green-500');
+            } else if (i === currentStep) {
+                bar.classList.remove('bg-gray-200');
+                bar.classList.add('bg-blue-700');
+            } else {
+                bar.classList.remove('bg-blue-700', 'bg-green-500');
+                bar.classList.add('bg-gray-200');
+            }
+        }
+    }
+
+    // clear red borders on input
+    document.querySelectorAll('input, select, textarea').forEach(function(el) {
+        el.addEventListener('input', function() {
+            el.classList.remove('border-red-400');
+        });
+    });
+
+    // ── Modal helpers ──────────────────────────────────────────────────────
     function openInfoModal(tab) {
         const modal = document.getElementById('info-modal');
         modal.classList.remove('hidden');
