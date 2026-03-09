@@ -26,6 +26,33 @@ Route::get('/register/employer', function () {
     return view('employer.register');
 })->name('employer.register');
 
+Route::get('/login/employer', function () {
+    return view('employer.login');
+})->name('employer.login');
+
+Route::get('/privacy-policy', function () {
+    return view('privacy-policy');
+})->name('privacy.policy');
+
+Route::post('/register/employer', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'company_name' => 'required|string|max:255',
+        'industry'     => 'required|string',
+        'address'      => 'required|string|max:255',
+        'first_name'   => 'required|string|max:255',
+        'last_name'    => 'required|string|max:255',
+        'phone'        => 'required|string|max:20',
+        'email'        => 'required|email|max:255',
+        'password'     => 'required|string|min:8|confirmed',
+        'terms'        => 'accepted',
+    ], [
+        'terms.accepted' => 'You must agree to the Terms of Service and Privacy Policy.',
+    ]);
+
+    // TODO: Store employer registration when backend is ready
+    return back()->with('success', 'Registration submitted successfully! PESO will review your account.');
+})->name('employer.register.post');
+
 Route::post('/contact', function (\Illuminate\Http\Request $request) {
     $request->validate([
         'name' => 'required|string|max:255',
