@@ -135,14 +135,20 @@ Route::get('/privacy-policy', function () {
 
 Route::post('/register/employer', function (\Illuminate\Http\Request $request) {
     $request->validate([
-        'company_name' => 'required|string|max:255',
-        'industry'     => 'required|string',
-        'address'      => 'required|string|max:255',
-        'first_name'   => 'required|string|max:255',
-        'last_name'    => 'required|string|max:255',
-        'phone'        => 'required|string|max:20',
-        'email'        => 'required|email|max:255',
-        'password'     => 'required|string|min:8|confirmed',
+        'business_name'   => 'required|string|max:255',
+        'employer_type'   => 'required|string',
+        'workforce_size'  => 'required|string',
+        'line_of_business'=> 'required|string|max:255',
+        'street'          => 'required|string|max:255',
+        'barangay'        => 'required|string|max:255',
+        'municipal_city'  => 'required|string|max:255',
+        'province'        => 'required|string|max:255',
+        'owner_name'      => 'required|string|max:255',
+        'contact_person'  => 'required|string|max:255',
+        'position'        => 'required|string|max:255',
+        'mobile'          => 'required|string|max:20',
+        'email'           => 'required|email|max:255',
+        'password'        => 'required|string|min:8|confirmed',
     ]);
 
     // TODO: Store employer registration when backend is ready

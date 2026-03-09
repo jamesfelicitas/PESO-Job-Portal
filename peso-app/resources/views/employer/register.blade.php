@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-    <div class="w-full max-w-2xl">
+<div class="w-full max-w-3xl">
 
         {{-- Card --}}
         <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
@@ -28,52 +28,122 @@
                     </div>
                 @endif
 
-                {{-- Company Information --}}
+                {{-- I. Establishment Details --}}
                 <div>
-                    <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Company Information</h2>
+                    <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center font-bold shrink-0">I</span>
+                        Establishment Details
+                    </h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                         <div class="sm:col-span-2">
-                            <label for="company_name" class="block text-sm font-semibold text-gray-700 mb-1">Company Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="company_name" name="company_name" placeholder="e.g. Del Monte Philippines"
+                            <label for="business_name" class="block text-sm font-semibold text-gray-700 mb-1">Business Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="business_name" name="business_name" placeholder="Registered business name"
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
-                            <label for="industry" class="block text-sm font-semibold text-gray-700 mb-1">Industry <span class="text-red-500">*</span></label>
-                            <select id="industry" name="industry"
-                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition appearance-none cursor-pointer">
-                                <option value="" disabled selected>Select industry</option>
-                                <option>Agriculture</option>
-                                <option>Construction</option>
-                                <option>Education</option>
-                                <option>Government / LGU</option>
-                                <option>Healthcare</option>
-                                <option>Hospitality & Tourism</option>
-                                <option>IT & Technology</option>
-                                <option>Manufacturing</option>
-                                <option>Retail & Sales</option>
-                                <option>Transportation & Logistics</option>
-                                <option>Other</option>
-                            </select>
+                            <label for="trade_name" class="block text-sm font-semibold text-gray-700 mb-1">Trade Name <span class="text-gray-400 font-normal">optional</span></label>
+                            <input type="text" id="trade_name" name="trade_name" placeholder="Trade or brand name"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
-                            <label for="company_size" class="block text-sm font-semibold text-gray-700 mb-1">Company Size</label>
-                            <select id="company_size" name="company_size"
-                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition appearance-none cursor-pointer">
-                                <option value="" disabled selected>Select size</option>
-                                <option>1–10 employees</option>
-                                <option>11–50 employees</option>
-                                <option>51–200 employees</option>
-                                <option>201–500 employees</option>
-                                <option>500+ employees</option>
-                            </select>
+                            <label for="acronym" class="block text-sm font-semibold text-gray-700 mb-1">Acronym / Abbreviation <span class="text-gray-400 font-normal">optional</span></label>
+                            <input type="text" id="acronym" name="acronym" placeholder="e.g. DMPI"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700 mb-2">Office Type</p>
+                            <div class="flex gap-5 pt-1">
+                                <label class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                                    <input type="radio" name="office_type" value="Main Office" checked class="text-blue-600 focus:ring-blue-500">
+                                    Main Office
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                                    <input type="radio" name="office_type" value="Branch" class="text-blue-600 focus:ring-blue-500">
+                                    Branch
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="tin" class="block text-sm font-semibold text-gray-700 mb-1">Tax Identification Number (TIN) <span class="text-gray-400 font-normal">optional</span></label>
+                            <input type="text" id="tin" name="tin" placeholder="000-000-000-000"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        {{-- Employer Type --}}
+                        <div class="sm:col-span-2">
+                            <p class="text-sm font-semibold text-gray-700 mb-3">Employer Type <span class="text-red-500">*</span></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="border border-gray-200 rounded-xl p-4">
+                                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Public</p>
+                                    <div class="space-y-2">
+                                        @foreach (['National Government Agency', 'Local Government Unit', 'Government-owned and Controlled Corporation', 'State/Local University or College'] as $etype)
+                                        <label class="flex items-start gap-2 text-sm text-gray-600 cursor-pointer">
+                                            <input type="radio" name="employer_type" value="{{ $etype }}" class="mt-0.5 text-blue-600 focus:ring-blue-500 shrink-0">
+                                            <span>{{ $etype }}</span>
+                                        </label>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="border border-gray-200 rounded-xl p-4">
+                                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Private</p>
+                                    <div class="space-y-2">
+                                        @foreach (['Direct Hire', 'Local Recruitment Agency', 'Overseas Recruitment Agency', 'D.O. 174'] as $etype)
+                                        <label class="flex items-start gap-2 text-sm text-gray-600 cursor-pointer">
+                                            <input type="radio" name="employer_type" value="{{ $etype }}" class="mt-0.5 text-blue-600 focus:ring-blue-500 shrink-0">
+                                            <span>{{ $etype }}</span>
+                                        </label>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Total Work Force --}}
+                        <div class="sm:col-span-2">
+                            <p class="text-sm font-semibold text-gray-700 mb-3">Total Work Force <span class="text-red-500">*</span></p>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                @foreach ([['Micro', '1–9'], ['Small', '10–99'], ['Medium', '100–199'], ['Large', '200 and up']] as [$wlabel, $wrange])
+                                <label class="flex flex-col items-center justify-center gap-1 border border-gray-200 rounded-xl px-3 py-3 cursor-pointer hover:border-blue-400 transition has-checked:border-blue-600 has-:checked:bg-blue-50 text-center">
+                                    <input type="radio" name="workforce_size" value="{{ $wlabel }}" class="sr-only">
+                                    <span class="text-sm font-bold text-gray-700">{{ $wlabel }}</span>
+                                    <span class="text-xs text-gray-400">{{ $wrange }}</span>
+                                </label>
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label for="address" class="block text-sm font-semibold text-gray-700 mb-1">Business Address <span class="text-red-500">*</span></label>
-                            <input type="text" id="address" name="address" placeholder="e.g. Manolo Fortich, Bukidnon"
+                            <label for="line_of_business" class="block text-sm font-semibold text-gray-700 mb-1">Line of Business / Industry <span class="text-red-500">*</span></label>
+                            <input type="text" id="line_of_business" name="line_of_business" placeholder="e.g. Food Processing, BPO, Construction (see BIR Form 2303)"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label for="street" class="block text-sm font-semibold text-gray-700 mb-1">Street / Village <span class="text-red-500">*</span></label>
+                            <input type="text" id="street" name="street" placeholder="House no., street name, subdivision/village"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div>
+                            <label for="barangay" class="block text-sm font-semibold text-gray-700 mb-1">Barangay <span class="text-red-500">*</span></label>
+                            <input type="text" id="barangay" name="barangay" placeholder="Barangay"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div>
+                            <label for="municipal_city" class="block text-sm font-semibold text-gray-700 mb-1">Municipal / City <span class="text-red-500">*</span></label>
+                            <input type="text" id="municipal_city" name="municipal_city" placeholder="Municipality or city"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div>
+                            <label for="province" class="block text-sm font-semibold text-gray-700 mb-1">Province <span class="text-red-500">*</span></label>
+                            <input type="text" id="province" name="province" placeholder="Province"
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
@@ -82,32 +152,53 @@
 
                 <hr class="border-gray-100">
 
-                {{-- Contact Person --}}
+                {{-- II. Establishment Contact Details --}}
                 <div>
-                    <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Contact Person</h2>
+                    <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center font-bold shrink-0">II</span>
+                        Establishment Contact Details
+                    </h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-                        <div>
-                            <label for="first_name" class="block text-sm font-semibold text-gray-700 mb-1">First Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="first_name" name="first_name" placeholder="Juan"
+                        <div class="sm:col-span-2">
+                            <label for="owner_name" class="block text-sm font-semibold text-gray-700 mb-1">Name of Owner / President <span class="text-red-500">*</span></label>
+                            <input type="text" id="owner_name" name="owner_name" placeholder="Full name of owner or president"
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
-                            <label for="last_name" class="block text-sm font-semibold text-gray-700 mb-1">Last Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="last_name" name="last_name" placeholder="Dela Cruz"
+                            <label for="contact_person" class="block text-sm font-semibold text-gray-700 mb-1">Contact Person <span class="text-red-500">*</span></label>
+                            <input type="text" id="contact_person" name="contact_person" placeholder="Full name"
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
-                            <label for="position" class="block text-sm font-semibold text-gray-700 mb-1">Position / Title</label>
+                            <label for="position" class="block text-sm font-semibold text-gray-700 mb-1">Position <span class="text-red-500">*</span></label>
                             <input type="text" id="position" name="position" placeholder="e.g. HR Manager"
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
-                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="09XXXXXXXXX"
+                            <label for="telephone" class="block text-sm font-semibold text-gray-700 mb-1">Telephone Number <span class="text-gray-400 font-normal">optional</span></label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="(088) 000-0000"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div>
+                            <label for="mobile" class="block text-sm font-semibold text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+                            <input type="tel" id="mobile" name="mobile" placeholder="09XXXXXXXXX"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div>
+                            <label for="fax" class="block text-sm font-semibold text-gray-700 mb-1">Fax Number <span class="text-gray-400 font-normal">optional</span></label>
+                            <input type="tel" id="fax" name="fax" placeholder="(088) 000-0000"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">E-mail Address <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="company@email.com"
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
@@ -118,14 +209,12 @@
 
                 {{-- Account Credentials --}}
                 <div>
-                    <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Account Credentials</h2>
+                    <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center font-bold shrink-0">III</span>
+                        Account Credentials
+                    </h2>
+                    <p class="text-xs text-gray-400 mb-4 ml-7">Your e-mail address above will be used to log in.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                        <div class="sm:col-span-2">
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="you@company.com"
-                                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
-                        </div>
 
                         <div>
                             <label for="password" class="block text-sm font-semibold text-gray-700 mb-1">Password <span class="text-red-500">*</span></label>
