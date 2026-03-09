@@ -50,7 +50,7 @@
                         </div>
                         <a href="#" class="btn-login">Login</a>
                         <a href="#" class="btn-outline-white">Register</a>
-                        <a href="{{ url('/register?role=employer') }}" class="inline-flex items-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-600 transition">Employer</a>
+                        <a href="{{ route('employer.register') }}" class="inline-flex items-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-600 transition">Employer</a>
                     </div>
 
                     {{-- Hamburger Button --}}
@@ -91,7 +91,7 @@
                     <div class="pt-3 mt-3 border-t border-blue-700 flex flex-col gap-3 px-4">
                         <a href="#" class="btn-login text-center">Login</a>
                         <a href="#" class="btn-outline-white text-center">Register</a>
-                        <a href="{{ url('/register?role=employer') }}" class="block w-full rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-600 transition text-center">Employer</a>
+                        <a href="{{ route('employer.register') }}" class="block w-full rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-600 transition text-center">Employer</a>
                     </div>
                 </div>
             </div>

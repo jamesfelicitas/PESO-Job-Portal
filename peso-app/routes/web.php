@@ -22,6 +22,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/register/employer', function () {
+    return view('employer.register');
+})->name('employer.register');
+
 Route::post('/contact', function (\Illuminate\Http\Request $request) {
     $request->validate([
         'name' => 'required|string|max:255',
