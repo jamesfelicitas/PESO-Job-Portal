@@ -42,7 +42,7 @@
             </div>
 
             {{-- Form --}}
-            <form class="px-8 py-8 space-y-6" action="{{ route('employer.register.post') }}" method="POST">
+            <form novalidate class="px-8 py-8 space-y-6" action="{{ route('employer.register.post') }}" method="POST">
                 @csrf
 
                 @if (session('success'))
@@ -62,7 +62,7 @@
 
                         <div class="sm:col-span-2">
                             <label for="business_name" class="block text-sm font-semibold text-gray-700 mb-1">Business Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="business_name" name="business_name" placeholder="Registered business name"
+                            <input type="text" id="business_name" name="business_name" placeholder="Registered business name" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
@@ -93,15 +93,15 @@
                         </div>
 
                         <div>
-                            <label for="tin" class="block text-sm font-semibold text-gray-700 mb-1">Tax Identification Number (TIN) <span class="text-gray-400 font-normal">optional</span></label>
-                            <input type="text" id="tin" name="tin" placeholder="000-000-000-000"
+                            <label for="tin" class="block text-sm font-semibold text-gray-700 mb-1">Tax Identification Number (TIN) <span class="text-red-500">*</span></label>
+                            <input type="text" id="tin" name="tin" placeholder="000-000-000-000" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         {{-- Employer Type --}}
                         <div class="sm:col-span-2">
                             <p class="text-sm font-semibold text-gray-700 mb-3">Employer Type <span class="text-red-500">*</span></p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-radio-group="employer_type">
                                 <div class="border border-gray-200 rounded-xl p-4">
                                     <p class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Public</p>
                                     <div class="space-y-2">
@@ -130,7 +130,7 @@
                         {{-- Total Work Force --}}
                         <div class="sm:col-span-2">
                             <p class="text-sm font-semibold text-gray-700 mb-3">Total Work Force <span class="text-red-500">*</span></p>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-radio-group="workforce_size">
                                 @foreach ([['Micro', '1–9'], ['Small', '10–99'], ['Medium', '100–199'], ['Large', '200 and up']] as [$wlabel, $wrange])
                                 <label class="flex flex-col items-center justify-center gap-1 border border-gray-200 rounded-xl px-3 py-3 cursor-pointer hover:border-blue-400 transition has-checked:border-blue-600 has-:checked:bg-blue-50 text-center">
                                     <input type="radio" name="workforce_size" value="{{ $wlabel }}" class="sr-only">
@@ -143,31 +143,31 @@
 
                         <div class="sm:col-span-2">
                             <label for="line_of_business" class="block text-sm font-semibold text-gray-700 mb-1">Line of Business / Industry <span class="text-red-500">*</span></label>
-                            <input type="text" id="line_of_business" name="line_of_business" placeholder="e.g. Food Processing, BPO, Construction (see BIR Form 2303)"
+                            <input type="text" id="line_of_business" name="line_of_business" placeholder="e.g. Food Processing, BPO, Construction (see BIR Form 2303)" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div class="sm:col-span-2">
                             <label for="street" class="block text-sm font-semibold text-gray-700 mb-1">Street / Village <span class="text-red-500">*</span></label>
-                            <input type="text" id="street" name="street" placeholder="House no., street name, subdivision/village"
+                            <input type="text" id="street" name="street" placeholder="House no., street name, subdivision/village" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
                             <label for="barangay" class="block text-sm font-semibold text-gray-700 mb-1">Barangay <span class="text-red-500">*</span></label>
-                            <input type="text" id="barangay" name="barangay" placeholder="Barangay"
+                            <input type="text" id="barangay" name="barangay" placeholder="Barangay" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
                             <label for="municipal_city" class="block text-sm font-semibold text-gray-700 mb-1">Municipal / City <span class="text-red-500">*</span></label>
-                            <input type="text" id="municipal_city" name="municipal_city" placeholder="Municipality or city"
+                            <input type="text" id="municipal_city" name="municipal_city" placeholder="Municipality or city" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
                             <label for="province" class="block text-sm font-semibold text-gray-700 mb-1">Province <span class="text-red-500">*</span></label>
-                            <input type="text" id="province" name="province" placeholder="Province"
+                            <input type="text" id="province" name="province" placeholder="Province" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
@@ -197,19 +197,19 @@
 
                         <div class="sm:col-span-2">
                             <label for="owner_name" class="block text-sm font-semibold text-gray-700 mb-1">Name of Owner / President <span class="text-red-500">*</span></label>
-                            <input type="text" id="owner_name" name="owner_name" placeholder="Full name of owner or president"
+                            <input type="text" id="owner_name" name="owner_name" placeholder="Full name of owner or president" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
                             <label for="contact_person" class="block text-sm font-semibold text-gray-700 mb-1">Contact Person <span class="text-red-500">*</span></label>
-                            <input type="text" id="contact_person" name="contact_person" placeholder="Full name"
+                            <input type="text" id="contact_person" name="contact_person" placeholder="Full name" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
                         <div>
                             <label for="position" class="block text-sm font-semibold text-gray-700 mb-1">Position <span class="text-red-500">*</span></label>
-                            <input type="text" id="position" name="position" placeholder="e.g. HR Manager"
+                            <input type="text" id="position" name="position" placeholder="e.g. HR Manager" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
@@ -221,7 +221,7 @@
 
                         <div>
                             <label for="mobile" class="block text-sm font-semibold text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
-                            <input type="tel" id="mobile" name="mobile" placeholder="09XXXXXXXXX"
+                            <input type="tel" id="mobile" name="mobile" placeholder="09XXXXXXXXX" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
@@ -233,7 +233,7 @@
 
                         <div>
                             <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">E-mail Address <span class="text-red-500">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="company@email.com"
+                            <input type="email" id="email" name="email" placeholder="company@email.com" required
                                 class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400">
                         </div>
 
@@ -272,7 +272,7 @@
                         <div>
                             <label for="password" class="block text-sm font-semibold text-gray-700 mb-1">Password <span class="text-red-500">*</span></label>
                             <div class="relative">
-                                <input type="password" id="password" name="password" placeholder="Min. 8 characters"
+                                <input type="password" id="password" name="password" placeholder="Min. 8 characters" required
                                     class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400 pr-12">
                                 <button type="button" onclick="togglePassword('password', this)"
                                     class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition">
@@ -287,7 +287,7 @@
                         <div>
                             <label for="password_confirmation" class="block text-sm font-semibold text-gray-700 mb-1">Confirm Password <span class="text-red-500">*</span></label>
                             <div class="relative">
-                                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Re-enter password"
+                                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Re-enter password" required
                                     class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition placeholder:text-gray-400 pr-12">
                                 <button type="button" onclick="togglePassword('password_confirmation', this)"
                                     class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition">
@@ -426,26 +426,64 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Required fields per step
+    const STEP_RULES = {
+        1: {
+            text:  ['business_name', 'tin', 'line_of_business', 'street', 'barangay', 'municipal_city', 'province'],
+            radio: ['employer_type', 'workforce_size'],
+        },
+        2: {
+            text:  ['owner_name', 'contact_person', 'position', 'mobile', 'email'],
+            radio: [],
+        },
+        3: {
+            text:     ['password', 'password_confirmation'],
+            checkbox: ['terms'],
+        },
+    };
+
     function validateStep(step) {
-        const panel = document.getElementById('step-' + step);
-        const required = panel.querySelectorAll('[required]');
+        const panel  = document.getElementById('step-' + step);
+        const rules  = STEP_RULES[step] || {};
         let valid = true;
-        required.forEach(function(el) {
-            el.classList.remove('border-red-400', 'ring-red-400/10');
-            if (el.type === 'radio' || el.type === 'checkbox') {
-                const group = panel.querySelectorAll('[name="' + el.name + '"]:checked');
-                if (!group.length) {
-                    valid = false;
-                    el.closest('div').classList.add('ring-2', 'ring-red-400/30', 'rounded-xl');
-                }
-            } else if (!el.value.trim()) {
-                el.classList.add('border-red-400', 'focus:ring-red-400/10');
+        let firstInvalid = null;
+
+        // Text / email / tel / password fields
+        (rules.text || []).forEach(function(name) {
+            const el = panel.querySelector('[name="' + name + '"]');
+            if (!el) return;
+            el.classList.remove('border-red-400');
+            if (!el.value.trim()) {
+                el.classList.add('border-red-400');
                 valid = false;
+                if (!firstInvalid) firstInvalid = el;
             }
         });
-        if (!valid) {
-            const first = panel.querySelector('[required]:not(:checked)') || panel.querySelector('.border-red-400');
-            if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Radio groups
+        (rules.radio || []).forEach(function(name) {
+            const wrapper = panel.querySelector('[data-radio-group="' + name + '"]');
+            if (wrapper) wrapper.classList.remove('ring-2', 'ring-red-500/40');
+            const checked = panel.querySelectorAll('[name="' + name + '"]:checked');
+            if (!checked.length) {
+                valid = false;
+                if (wrapper) wrapper.classList.add('ring-2', 'ring-red-500/40', 'rounded-2xl');
+                if (!firstInvalid) firstInvalid = wrapper || panel.querySelector('[name="' + name + '"]');
+            }
+        });
+
+        // Checkboxes
+        (rules.checkbox || []).forEach(function(name) {
+            const el = panel.querySelector('[name="' + name + '"]');
+            if (!el) return;
+            if (!el.checked) {
+                valid = false;
+                if (!firstInvalid) firstInvalid = el;
+            }
+        });
+
+        if (!valid && firstInvalid) {
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         return valid;
     }
@@ -490,10 +528,17 @@
         }
     }
 
-    // clear red borders on input
+    // Clear red borders on input
     document.querySelectorAll('input, select, textarea').forEach(function(el) {
         el.addEventListener('input', function() {
             el.classList.remove('border-red-400');
+        });
+    });
+    // Clear radio group rings on selection
+    document.querySelectorAll('input[type="radio"]').forEach(function(el) {
+        el.addEventListener('change', function() {
+            const wrapper = el.closest('[data-radio-group]');
+            if (wrapper) wrapper.classList.remove('ring-2', 'ring-red-500/40');
         });
     });
 
