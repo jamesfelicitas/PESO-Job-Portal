@@ -12,8 +12,8 @@
 
             {{-- Header --}}
             <div class="bg-linear-to-br from-blue-900 via-blue-800 to-blue-700 px-8 py-10 text-center">
-                <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo"
-                    class="w-20 h-20 rounded-full object-cover shadow-lg mx-auto mb-4 ring-4 ring-white/30">
+                <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" width="10" height="10"
+                    class="w-25 h-25 rounded-full object-cover shadow-lg mx-auto mb-4">
                 <h1 class="text-2xl font-extrabold text-white">Employer Registration</h1>
                 <p class="text-blue-200 text-sm mt-1">Post jobs and find the right talent through PESO Manolo Fortich</p>
             </div>
