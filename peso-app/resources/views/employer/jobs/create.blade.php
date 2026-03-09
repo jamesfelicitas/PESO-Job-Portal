@@ -18,7 +18,7 @@
 </div>
 
 <div class="max-w-3xl">
-    <form method="POST" action="{{ route('employer.jobs.store') }}" class="space-y-6">
+    <form method="POST" action="{{ route('employer.jobs.store') }}" enctype="multipart/form-data" class="space-y-6">
         @csrf
 
         @if ($errors->any())
@@ -35,6 +35,25 @@
         {{-- Job Details --}}
         <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-5">
             <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Job Details</h2>
+
+            {{-- Company Logo --}}
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">
+                    Company Logo <span class="text-gray-400 font-normal">optional</span>
+                </label>
+                <div class="flex items-center gap-4">
+                    <div id="logo-preview-wrap" class="hidden w-16 h-16 rounded-xl overflow-hidden border border-gray-200 shrink-0">
+                        <img id="logo-preview" src="" class="w-full h-full object-cover">
+                    </div>
+                    <label class="cursor-pointer flex items-center gap-2 px-4 py-3 rounded-xl border border-dashed border-gray-300 hover:border-blue-400 text-sm text-gray-500 hover:text-blue-600 transition">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                        </svg>
+                        <span id="logo-label">Upload logo (PNG, JPG, max 2MB)</span>
+                        <input type="file" name="logo" id="logo" accept="image/png,image/jpeg,image/gif,image/webp" class="hidden" onchange="previewLogo(this)">
+                    </label>
+                </div>
+            </div>
 
             <div>
                 <label for="title" class="block text-sm font-semibold text-gray-700 mb-1">
@@ -145,5 +164,29 @@
 
     </form>
 </div>
+
+@push('scripts')
+<script>
+function previewLogo(input) {
+    const file = input.files[0];
+    if (!file) return;
+    if (file.size > 2 * 1024 * 1024) {
+        alert('Logo must be 2MB or smaller.');
+        input.value = '';
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const preview = document.getElementById('logo-preview');
+        const wrap = document.getElementById('logo-preview-wrap');
+        const label = document.getElementById('logo-label');
+        preview.src = e.target.result;
+        wrap.classList.remove('hidden');
+        label.textContent = file.name;
+    };
+    reader.readAsDataURL(file);
+}
+</script>
+@endpush
 
 @endsection

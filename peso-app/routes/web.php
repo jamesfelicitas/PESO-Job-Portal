@@ -87,12 +87,19 @@ Route::post('/employer/jobs', function (\Illuminate\Http\Request $request) {
         'deadline'     => 'nullable|date|after:today',
     ]);
 
+    $logo = null;
+    if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
+        $file = $request->file('logo');
+        $logo = 'data:' . $file->getMimeType() . ';base64,' . base64_encode(file_get_contents($file->path()));
+    }
+
     $jobs = session('employer_jobs', []);
     $jobs[] = array_merge($data, [
         'id'         => uniqid(),
         'status'     => 'active',
         'posted_at'  => now()->format('M d, Y'),
         'applicants' => 0,
+        'logo'       => $logo,
     ]);
     session(['employer_jobs' => $jobs]);
 

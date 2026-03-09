@@ -80,7 +80,16 @@
         @foreach (array_reverse($jobs) as $job)
         <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4">
             <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-                <div class="flex-1 min-w-0">
+                <div class="flex items-start gap-4 flex-1 min-w-0">
+                    {{-- Company Logo --}}
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border border-gray-100 shrink-0 flex items-center justify-center bg-blue-50 mt-0.5">
+                        @if (!empty($job['logo']))
+                            <img src="{{ $job['logo'] }}" alt="Logo" class="w-full h-full object-cover">
+                        @else
+                            <span class="text-blue-700 font-extrabold text-lg leading-none">{{ strtoupper(substr($job['title'], 0, 1)) }}</span>
+                        @endif
+                    </div>
+                    <div class="flex-1 min-w-0">
                     <div class="flex flex-wrap items-center gap-2 mb-1">
                         <span class="text-base font-bold text-gray-900 truncate">{{ $job['title'] }}</span>
                         @if ($job['status'] === 'active')
@@ -124,7 +133,8 @@
                         </span>
                     </div>
                     <p class="mt-2 text-sm text-gray-600 line-clamp-2">{{ $job['description'] }}</p>
-                </div>
+                    </div>{{-- end inner flex-1 --}}
+                </div>{{-- end logo + content flex --}}
 
                 {{-- Actions --}}
                 <div class="flex items-center gap-2 shrink-0">
