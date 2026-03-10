@@ -467,7 +467,7 @@
                 <p class="cta-subtitle">Join thousands of Filipinos who found employment through PESO Job Portal System.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#" class="btn-cta-primary">Register as Jobseeker</a>
-                    <a href="#" class="btn-cta-outline">Register as Employer</a>
+                    <a href="{{ route('employer.register') }}" class="btn-cta-outline">Register as Employer</a>
                 </div>
             </div>
         </section>
