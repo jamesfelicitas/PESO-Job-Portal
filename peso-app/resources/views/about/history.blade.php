@@ -67,6 +67,75 @@
                             </p>
                         </div>
                     </div>
+                    <div class="relative flex items-center mb-12">
+    <div class="w-1/2 pr-12 text-right">
+        <h3 class="text-2xl font-bold text-blue-700">2013</h3>
+        <h4 class="text-lg font-semibold text-gray-800 mt-1">Youth Empowerment & Scholarship</h4>
+        <p class="text-gray-600 mt-2 text-sm">
+            Beyond traditional employment services, the PESO of Manolo Fortich prioritized education and youth empowerment. 
+            The Mayor's Scholarship Program, initiated under Mayor Acosta's tenure, provided opportunities for economically 
+            disadvantaged students to pursue higher education, breaking down barriers to academic achievement.
+        </p>
+    </div>
+    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+    <div class="w-1/2 pl-12"></div>
+</div>
+
+<div class="relative flex items-center mb-12">
+    <div class="w-1/2 pr-12"></div>
+    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+    <div class="w-1/2 pl-12">
+        <h3 class="text-2xl font-bold text-blue-700">October 2013</h3>
+        <h4 class="text-lg font-semibold text-gray-800 mt-1">SPES Implementation</h4>
+        <p class="text-gray-600 mt-2 text-sm">
+            The implementation of the Special Program for the Employment of Students (SPES), supported by a 40% counterpart 
+            from DOLE, provided short-term employment opportunities to hundreds of students, allowing them to earn while 
+            gaining valuable work experience.
+        </p>
+    </div>
+</div>
+
+<div class="relative flex items-center mb-12">
+    <div class="w-1/2 pr-12 text-right">
+        <h3 class="text-2xl font-bold text-blue-700">2016</h3>
+        <h4 class="text-lg font-semibold text-gray-800 mt-1">JobStart Philippines Program</h4>
+        <p class="text-gray-600 mt-2 text-sm">
+            The signing of a Memorandum of Agreement with DOLE for the JobStart Philippines Program marked another milestone. 
+            This initiative aimed to bridge the gap between education and employment by providing training and job placement 
+            assistance to young graduates.
+        </p>
+    </div>
+    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+    <div class="w-1/2 pl-12"></div>
+</div>
+
+<div class="relative flex items-center mb-12">
+    <div class="w-1/2 pr-12"></div>
+    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+    <div class="w-1/2 pl-12">
+        <h3 class="text-2xl font-bold text-blue-700">2013–2023</h3>
+        <h4 class="text-lg font-semibold text-gray-800 mt-1">Regional Recognition</h4>
+        <p class="text-gray-600 mt-2 text-sm">
+            Throughout its existence, the PESO of Manolo Fortich has been recognized as one of the top-performing PESO offices 
+            in the region, receiving awards in 2013, 2014, 2015, 2016, 2018, 2022, and 2023. These achievements highlight the 
+            dedication and teamwork of the PESO Manager and staff in delivering exemplary public service.
+        </p>
+    </div>
+</div>
+
+<div class="relative flex items-center">
+    <div class="w-1/2 pr-12 text-right">
+        <h3 class="text-2xl font-bold text-blue-700">Today</h3>
+        <h4 class="text-lg font-semibold text-gray-800 mt-1">Continuing the Mission</h4>
+        <p class="text-gray-600 mt-2 text-sm">
+            Like a soaring eagle upon the sky, the PESO of Manolo Fortich, as part of a first-class municipality, continues its 
+            journey toward inclusive development. The office constantly evolves to adapt to changing economic landscapes, 
+            serving as a testament to the power of public service in empowering individuals and strengthening the community.
+        </p>
+    </div>
+    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow"></div>
+    <div class="w-1/2 pl-12"></div>
+</div>
                 </div>
             </div>
         </section>

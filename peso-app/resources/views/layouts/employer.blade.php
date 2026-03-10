@@ -21,7 +21,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
-                    <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" class="w-10 h-10 sm:w-14 sm:h-14 md:w-18 md:h-16 rounded-full object-cover shadow-sm">
+                    <img src="{{ asset('images/PESOO.png') }}" alt="PESO Logo" class="w-10 h-10 sm:w-14 sm:h-14 md:w-19 md:h-15 rounded-full object-cover shadow-sm">
                     <div class="leading-tight">
                         <span class="text-white font-extrabold text-sm sm:text-base tracking-tight">PESO Job Portal</span>
                         <span class="block text-blue-300 text-xs">Employer Portal</span>
