@@ -26,6 +26,10 @@ Route::get('/about/objective', function () {
     return view('about.objective');
 });
 
+Route::get('/about/org-chart', function () {
+    return view('about.orgchart');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -36,7 +40,7 @@ Route::get('/register/employer', function () {
 
 Route::get('/login/employer', function () {
     if (session('employer')) {
-        return redirect()->route('employer.dashboard');
+        return redirect()->route('employer.dashboard');     
     }
     return view('employer.login');
 })->name('employer.login');

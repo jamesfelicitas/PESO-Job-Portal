@@ -48,7 +48,7 @@
                                 <a href="{{ url('/about/mission') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Mission</a>
                                 <a href="{{ url('/about/vision') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Vision</a>
                                  <a href="{{ url('/about/objective') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Objective</a>
-                                
+                                <a href="{{ url('/about/org-chart') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Organizational Chart</a>
                                 <hr class="my-1 border-gray-100">
                             </div>
                         </div>
@@ -90,6 +90,7 @@
                             <a href="{{ url('/about/mission') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Mission</a>
                             <a href="{{ url('/about/vision') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Vision</a>
                             <a href="{{ url('/about/historical-background') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Historical Background</a>
+                            <a href="{{ url('/about/org-chart') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Organizational Chart</a>
                         </div>
                     </div>
 
