@@ -26,10 +26,6 @@ Route::get('/about/objective', function () {
     return view('about.objective');
 });
 
-Route::get('/about/org-chart', function () {
-    return view('about.orgchart');
-});
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -155,6 +151,11 @@ Route::post('/employer/jobs/{id}/toggle', function ($id) {
 
     return redirect()->route('employer.jobs.index')->with('success', 'Job status updated.');
 })->name('employer.jobs.toggle');
+
+Route::get('/employer/applicants', function () {
+    if (!session('employer')) return redirect()->route('employer.login');
+    return view('employer.applicants');
+})->name('employer.applicants');
 
 Route::get('/privacy-policy', function () {
     return view('privacy-policy');
