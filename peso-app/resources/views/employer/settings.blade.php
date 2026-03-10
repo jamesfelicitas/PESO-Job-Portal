@@ -277,17 +277,99 @@
 
             {{-- ════ NOTIFICATIONS ════ --}}
             <div id="tab-notifications" class="settings-tab hidden">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-6">
-                    <h3 class="text-base font-bold text-gray-800 mb-1">Notifications</h3>
-                    <p class="text-sm text-gray-500 mb-5">Choose how you receive alerts and updates.</p>
 
-                    <div class="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-sm text-amber-700">
-                        <svg class="w-5 h-5 shrink-0 mt-0.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        Notification preferences will be available in a future update.
+                {{-- Unread badge summary --}}
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="text-base font-bold text-gray-800">Notifications</h3>
+                        <p class="text-sm text-gray-500">Recent alerts for your account</p>
                     </div>
+                    <span class="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">3 New</span>
                 </div>
+
+                {{-- Notification list --}}
+                <div class="space-y-3">
+
+                    {{-- Unread: New Applicant --}}
+                    <div class="flex items-start gap-3 bg-blue-50 border border-blue-100 rounded-2xl px-4 py-3.5 relative">
+                        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shrink-0 text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-gray-900">New Applicant — Web Developer</p>
+                            <p class="text-sm text-gray-600 mt-0.5">Juan dela Cruz submitted an application for your <span class="font-medium">Web Developer</span> posting.</p>
+                            <p class="text-xs text-gray-400 mt-1">Today, 9:41 AM</p>
+                        </div>
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-600 shrink-0 mt-1"></span>
+                    </div>
+
+                    {{-- Unread: PESO Admin reviewed --}}
+                    <div class="flex items-start gap-3 bg-blue-50 border border-blue-100 rounded-2xl px-4 py-3.5 relative">
+                        <div class="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center shrink-0 text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-gray-900">Job Posting Approved</p>
+                            <p class="text-sm text-gray-600 mt-0.5">PESO Admin approved your job posting: <span class="font-medium">Customer Service Representative</span>.</p>
+                            <p class="text-xs text-gray-400 mt-1">Today, 8:15 AM</p>
+                        </div>
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-600 shrink-0 mt-1"></span>
+                    </div>
+
+                    {{-- Unread: Reminder --}}
+                    <div class="flex items-start gap-3 bg-blue-50 border border-blue-100 rounded-2xl px-4 py-3.5 relative">
+                        <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center shrink-0 text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-gray-900">Job Posting Expiring Soon</p>
+                            <p class="text-sm text-gray-600 mt-0.5">Your posting <span class="font-medium">Accounting Clerk</span> expires in 3 days. Renew it to keep receiving applicants.</p>
+                            <p class="text-xs text-gray-400 mt-1">Yesterday, 5:00 PM</p>
+                        </div>
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-600 shrink-0 mt-1"></span>
+                    </div>
+
+                    {{-- Read: Interview scheduled --}}
+                    <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-2xl px-4 py-3.5">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0 text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-gray-700">Interview Scheduled</p>
+                            <p class="text-sm text-gray-500 mt-0.5">You scheduled an interview with <span class="font-medium">Maria Santos</span> for March 12, 2026 at 10:00 AM.</p>
+                            <p class="text-xs text-gray-400 mt-1">March 9, 2026</p>
+                        </div>
+                    </div>
+
+                    {{-- Read: Welcome --}}
+                    <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-2xl px-4 py-3.5">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0 text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-gray-700">Welcome to PESO Employer Portal!</p>
+                            <p class="text-sm text-gray-500 mt-0.5">Your account has been verified. You can now post jobs and manage applicants through the PESO system.</p>
+                            <p class="text-xs text-gray-400 mt-1">March 5, 2026</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{-- Mark all read --}}
+                <div class="mt-4 flex justify-end">
+                    <button class="text-sm text-blue-600 font-semibold hover:underline">Mark all as read</button>
+                </div>
+
             </div>
 
             {{-- ════ DANGER ZONE ════ --}}
