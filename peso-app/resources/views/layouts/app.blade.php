@@ -15,6 +15,7 @@
 
         <!-- Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('styles')
     </head>
     <body class="bg-white text-gray-900 min-h-screen font-sans pt-16 md:pt-20">
 
@@ -42,9 +43,11 @@
                                 </svg>
                             </button>
                             <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="{{ url('/about/historical-background') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Historical Background</a>
                                 <a href="{{ url('/about/history') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">History of Excellence</a>
                                 <a href="{{ url('/about/mission') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Mission</a>
                                 <a href="{{ url('/about/vision') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Vision</a>
+                                
                                 <hr class="my-1 border-gray-100">
                             </div>
                         </div>
@@ -85,6 +88,7 @@
                             <a href="{{ url('/about/history') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">History of Excellence</a>
                             <a href="{{ url('/about/mission') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Mission</a>
                             <a href="{{ url('/about/vision') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Vision</a>
+                            <a href="{{ url('/about/historical-background') }}" class="block px-4 py-2.5 text-blue-300 hover:bg-blue-700 hover:text-white rounded-lg text-sm font-medium transition">Historical Background</a>
                         </div>
                     </div>
 
@@ -176,5 +180,6 @@
             </div>
         </footer>
 
+        @stack('scripts')
     </body>
 </html>

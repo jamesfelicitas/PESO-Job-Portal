@@ -18,6 +18,10 @@ Route::get('/about/vision', function () {
     return view('about.vision');
 });
 
+Route::get('/about/historical-background', function () {
+    return view('about.historicalbackground');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 });
