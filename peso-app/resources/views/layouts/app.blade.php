@@ -47,6 +47,7 @@
                                 <a href="{{ url('/about/history') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">History of Excellence</a>
                                 <a href="{{ url('/about/mission') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Mission</a>
                                 <a href="{{ url('/about/vision') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Vision</a>
+                                 <a href="{{ url('/about/objective') }}" class="block px-4 py-2.5 text-gray-700 hover:bg-blue-50 hover:text-blue-700 text-sm font-medium transition">Objective</a>
                                 
                                 <hr class="my-1 border-gray-100">
                             </div>

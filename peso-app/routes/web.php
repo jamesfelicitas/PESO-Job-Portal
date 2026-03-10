@@ -22,6 +22,10 @@ Route::get('/about/historical-background', function () {
     return view('about.historicalbackground');
 });
 
+Route::get('/about/objective', function () {
+    return view('about.objective');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 });
