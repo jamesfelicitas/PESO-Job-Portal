@@ -1,60 +1,46 @@
 @extends('layouts.app')
 
-@section('title', 'Brief Historical Background - PESO Manolo Fortich')
+@section('title', 'Brief Historical Background')
 
 @section('content')
 
-<section class="py-20 bg-white relative overflow-hidden">
-    <div class="nav-container max-w-5xl mx-auto">
+<section class="py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
 
-    <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Brief Historical Background</h1>
-        <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-    </div>
+        <div class="grid md:grid-cols-2 gap-12 items-start">
 
-    <div class="text-gray-700 leading-relaxed text-lg space-y-6">
+            {{-- LEFT IMAGE --}}
+            <div>
+                <img src="{{ asset('images/historicalbackground.png') }}"
+                     alt="Manolo Fortich History"
+                     class="w-full h-135 rounded-lg shadow-lg">
+            </div>
 
-        <p>
-            The early history of the people of Bukidnon can be traced through their rich oral traditions and folk tales. 
-            One such story is the <em>“Kalikat Hu Mga Etaw Dini Ta Mindanao”</em> (Origin of the People of Mindanao), 
-            which tells the story of two brothers from Asia who crossed the seas on a long journey toward the East, 
-            eventually reaching the islands now known as the Philippines.
-        </p>
+            {{-- RIGHT CONTENT --}}
+            <div>
+                <h1 class="text-4xl font-bold text-gray-900 mb-6">
+                    Brief Historical Background
+                </h1>
 
-        <p>
-            According to the story, the brothers landed on the island of Mindanao. During a time of drought, one of the 
-            brothers ventured northward in search of better living conditions. Following a dried riverbed, he eventually 
-            reached the upstream areas of what is now known as the Pulangi River. There, he settled and intermarried 
-            with the local nomadic inhabitants. Their descendants are believed to be among the ancestors of the 
-            present-day Bukidnon people.
-        </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Manolo Fortich is a municipality located in the province of Bukidnon, in the northern region of Mindanao, Philippines. It was named after the late Don Manolo Fortich, a notable and respected figure in the province.
 
-        <p>
-            During World War II, Manolo Fortich became a stronghold of the resistance movement against Japanese forces. 
-            The town served as a strategic location where several battles took place between Filipino resistance 
-            fighters and Japanese troops, highlighting the courage and resilience of the local population during 
-            this difficult period.
-        </p>
+                </p>
 
-        <p>
-            After the war, Manolo Fortich gradually developed into a major center for agricultural production. The 
-            municipality became widely known for its pineapple and banana plantations. The establishment of the 
-            Del Monte pineapple plantation significantly contributed to the town’s economic growth and became one 
-            of the largest sources of employment in the area.
-        </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                     During the pre-historic era, the Bukidnons, also called Montesses or mountain people, settled in the area of what is now called the Province of Bukidnon. These people have remained traditional till 1860 preserving most of their customs and tradition. Furthermore, these people had not been significantly influenced by the Spanish colonizers because of their isolation. The rugged mountain ranges and high plateaus serve as home to these people presented an overwhelming obstacle to these colonizers.
 
-        <p>
-            In 1971, Manolo Fortich was converted into a component city, although it was later reverted to a 
-            municipality in 2001. Today, the municipality is recognized for its natural attractions and growing 
-            tourism industry. Among its popular destinations is Dahilayan Adventure Park, which offers outdoor 
-            activities such as zip-lining and horseback riding. The town also hosts several historical landmarks, 
-            including the Del Monte Pineapple Plantation and the World War II MacArthur Monument.
-        </p>
+                </p>
+
+                <p class="text-gray-600 leading-relaxed">
+                    The Bukidnons undoubtedly have links to the culture predominant in the Southeast Asian region as evidenced by the similar customs and traditions. Their presence here can be traced to the early migrations of these Asians throughout the region. It was theorized that they came from places of what is now known as Indonesia. Traveling by the sea, these migrants reached the gulf of Davao where some ventured further to areas of what is presently known as Bukidnon and Misamis Oriental..
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
-
-</div>
-```
-
 </section>
+
 @endsection
