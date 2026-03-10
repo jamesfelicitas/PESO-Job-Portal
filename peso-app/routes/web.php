@@ -157,6 +157,29 @@ Route::get('/employer/applicants', function () {
     return view('employer.applicants');
 })->name('employer.applicants');
 
+Route::get('/employer/settings', function () {
+    if (!session('employer')) return redirect()->route('employer.login');
+    return view('employer.settings');
+})->name('employer.settings');
+
+Route::post('/employer/settings', function (\Illuminate\Http\Request $request) {
+    if (!session('employer')) return redirect()->route('employer.login');
+
+    $data = $request->validate([
+        'company'  => 'required|string|max:255',
+        'email'    => 'required|email|max:255',
+        'contact'  => 'nullable|string|max:50',
+        'address'  => 'nullable|string|max:500',
+        'industry' => 'nullable|string|max:255',
+        'website'  => 'nullable|url|max:255',
+        'about'    => 'nullable|string|max:1000',
+    ]);
+
+    session(['employer' => array_merge(session('employer', []), $data)]);
+
+    return redirect()->route('employer.settings')->with('success', 'Profile updated successfully!');
+})->name('employer.settings.update');
+
 Route::get('/privacy-policy', function () {
     return view('privacy-policy');
 })->name('privacy.policy');
