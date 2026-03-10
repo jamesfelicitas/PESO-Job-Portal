@@ -10,10 +10,10 @@
         <div class="grid md:grid-cols-2 gap-12 items-start">
 
             {{-- LEFT IMAGE --}}
-            <div>
-                <img src="{{ asset('images/historicalbackground.png') }}"
+            <div class="w-full">
+                <img src="{{ asset('images/bg.png') }}"
                      alt="Manolo Fortich History"
-                     class="w-full h-135 rounded-lg shadow-lg">
+                     class="w-full h-64 sm:h-80 md:h-96 lg:h-140 object-cover rounded-lg shadow-lg">
             </div>
 
             {{-- RIGHT CONTENT --}}
